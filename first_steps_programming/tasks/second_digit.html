@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <script>
+        var n = window.prompt("Input N");
+        n=+n;
+        if(n<100||n>999){
+            while(n<100||n>999){
+            n = window.prompt("Введите ТРЕХЗНАЧНОЕ число");
+            }      
+        }
+        n = (n%100-n%10)/10;
+        window.alert("Вторая числа вашего числа: " + n);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
