@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <script>
+        var n = window.prompt("Введите трехзначное число"); 
+        n=+n;
+        if(n<100||n>999){
+            while(n<100||n>999){
+            n = window.prompt("Введите ТРЕХзначное число");
+            }      
+        }
+        alert("Последняя цифра числа это " + n%10)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
