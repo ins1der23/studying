@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\repo\\subjects\\meet_thpl\\lesson1\\Example005_Sum_of_random\\Example005_Sum_of_random.csproj",
+      "projectUniqueName": "C:\\repo\\subjects\\first_steps_languages\\lesson1\\Example005_Sum_of_random\\Example005_Sum_of_random.csproj",
       "projectName": "Example005_Sum_of_random",
-      "projectPath": "C:\\repo\\subjects\\meet_thpl\\lesson1\\Example005_Sum_of_random\\Example005_Sum_of_random.csproj",
+      "projectPath": "C:\\repo\\subjects\\first_steps_languages\\lesson1\\Example005_Sum_of_random\\Example005_Sum_of_random.csproj",
       "packagesPath": "C:\\Users\\Миша\\.nuget\\packages\\",
-      "outputPath": "C:\\repo\\subjects\\meet_thpl\\lesson1\\Example005_Sum_of_random\\obj\\",
+      "outputPath": "C:\\repo\\subjects\\first_steps_languages\\lesson1\\Example005_Sum_of_random\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Миша\\AppData\\Roaming\\NuGet\\NuGet.Config",
