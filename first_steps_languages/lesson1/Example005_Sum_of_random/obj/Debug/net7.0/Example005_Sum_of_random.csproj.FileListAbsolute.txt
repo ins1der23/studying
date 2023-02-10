@@ -1,0 +1,5 @@
+C:\repo\subjects\meet_thpl\lesson1\Example005_Sum_of_random\obj\Debug\net7.0\Example005_Sum_of_random.csproj.AssemblyReference.cache
+C:\repo\subjects\meet_thpl\lesson1\Example005_Sum_of_random\obj\Debug\net7.0\Example005_Sum_of_random.GeneratedMSBuildEditorConfig.editorconfig
+C:\repo\subjects\meet_thpl\lesson1\Example005_Sum_of_random\obj\Debug\net7.0\Example005_Sum_of_random.AssemblyInfoInputs.cache
+C:\repo\subjects\meet_thpl\lesson1\Example005_Sum_of_random\obj\Debug\net7.0\Example005_Sum_of_random.AssemblyInfo.cs
+C:\repo\subjects\meet_thpl\lesson1\Example005_Sum_of_random\obj\Debug\net7.0\Example005_Sum_of_random.csproj.CoreCompileInputs.cache

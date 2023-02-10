@@ -1,0 +1,15 @@
+C:\repo\subjects\first_steps_languages\practice1\example003\obj\Debug\net7.0\example003.csproj.AssemblyReference.cache
+C:\repo\subjects\first_steps_languages\practice1\example003\obj\Debug\net7.0\example003.GeneratedMSBuildEditorConfig.editorconfig
+C:\repo\subjects\first_steps_languages\practice1\example003\obj\Debug\net7.0\example003.AssemblyInfoInputs.cache
+C:\repo\subjects\first_steps_languages\practice1\example003\obj\Debug\net7.0\example003.AssemblyInfo.cs
+C:\repo\subjects\first_steps_languages\practice1\example003\obj\Debug\net7.0\example003.csproj.CoreCompileInputs.cache
+C:\repo\subjects\first_steps_languages\practice1\example003\bin\Debug\net7.0\example003.exe
+C:\repo\subjects\first_steps_languages\practice1\example003\bin\Debug\net7.0\example003.deps.json
+C:\repo\subjects\first_steps_languages\practice1\example003\bin\Debug\net7.0\example003.runtimeconfig.json
+C:\repo\subjects\first_steps_languages\practice1\example003\bin\Debug\net7.0\example003.dll
+C:\repo\subjects\first_steps_languages\practice1\example003\bin\Debug\net7.0\example003.pdb
+C:\repo\subjects\first_steps_languages\practice1\example003\obj\Debug\net7.0\example003.dll
+C:\repo\subjects\first_steps_languages\practice1\example003\obj\Debug\net7.0\refint\example003.dll
+C:\repo\subjects\first_steps_languages\practice1\example003\obj\Debug\net7.0\example003.pdb
+C:\repo\subjects\first_steps_languages\practice1\example003\obj\Debug\net7.0\example003.genruntimeconfig.cache
+C:\repo\subjects\first_steps_languages\practice1\example003\obj\Debug\net7.0\ref\example003.dll
