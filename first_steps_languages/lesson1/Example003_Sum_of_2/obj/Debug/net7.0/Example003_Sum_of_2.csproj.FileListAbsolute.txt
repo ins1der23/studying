@@ -1,0 +1,15 @@
+C:\repo\subjects\meet_thpl\lesson1\Example003_Sum_of_2\obj\Debug\net7.0\Example003_Sum_of_2.csproj.AssemblyReference.cache
+C:\repo\subjects\meet_thpl\lesson1\Example003_Sum_of_2\obj\Debug\net7.0\Example003_Sum_of_2.GeneratedMSBuildEditorConfig.editorconfig
+C:\repo\subjects\meet_thpl\lesson1\Example003_Sum_of_2\obj\Debug\net7.0\Example003_Sum_of_2.AssemblyInfoInputs.cache
+C:\repo\subjects\meet_thpl\lesson1\Example003_Sum_of_2\obj\Debug\net7.0\Example003_Sum_of_2.AssemblyInfo.cs
+C:\repo\subjects\meet_thpl\lesson1\Example003_Sum_of_2\obj\Debug\net7.0\Example003_Sum_of_2.csproj.CoreCompileInputs.cache
+C:\repo\subjects\meet_thpl\lesson1\Example003_Sum_of_2\bin\Debug\net7.0\Example003_Sum_of_2.exe
+C:\repo\subjects\meet_thpl\lesson1\Example003_Sum_of_2\bin\Debug\net7.0\Example003_Sum_of_2.deps.json
+C:\repo\subjects\meet_thpl\lesson1\Example003_Sum_of_2\bin\Debug\net7.0\Example003_Sum_of_2.runtimeconfig.json
+C:\repo\subjects\meet_thpl\lesson1\Example003_Sum_of_2\bin\Debug\net7.0\Example003_Sum_of_2.dll
+C:\repo\subjects\meet_thpl\lesson1\Example003_Sum_of_2\bin\Debug\net7.0\Example003_Sum_of_2.pdb
+C:\repo\subjects\meet_thpl\lesson1\Example003_Sum_of_2\obj\Debug\net7.0\Example003_Sum_of_2.dll
+C:\repo\subjects\meet_thpl\lesson1\Example003_Sum_of_2\obj\Debug\net7.0\refint\Example003_Sum_of_2.dll
+C:\repo\subjects\meet_thpl\lesson1\Example003_Sum_of_2\obj\Debug\net7.0\Example003_Sum_of_2.pdb
+C:\repo\subjects\meet_thpl\lesson1\Example003_Sum_of_2\obj\Debug\net7.0\Example003_Sum_of_2.genruntimeconfig.cache
+C:\repo\subjects\meet_thpl\lesson1\Example003_Sum_of_2\obj\Debug\net7.0\ref\Example003_Sum_of_2.dll

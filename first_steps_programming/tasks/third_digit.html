@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <script>
+        var n = Math.floor(Math.random() * 20001) -10000;
+        window.alert("Сейчас я подумаю и покажу вам третью цифру числа " + n);
+        if(n>-100 & n<100){
+            alert("Нет третьей цифры")
+        } else{
+            while(n<-1000||n>1000){
+                n=(n-n%10)/10;
+            }
+            alert(Math.abs(n%10));
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

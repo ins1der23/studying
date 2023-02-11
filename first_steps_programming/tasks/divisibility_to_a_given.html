@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <script>
+        var n = Math.floor(Math.random() * 2001) -1000;
+        alert(n);
+        var m = window.prompt("Введите число и я проверю кратно ли оно заданному");
+        if(m==0)
+            while(m==0){
+                var m = window.prompt("Введите число отличное от нуля")
+            }
+        if(n%m==0){
+            alert(n + "/"+ m + "=" + n/m);
+        }else{
+            alert("Остаток от деления "+ n + " на " + m + " = " +n%m);
+        }
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

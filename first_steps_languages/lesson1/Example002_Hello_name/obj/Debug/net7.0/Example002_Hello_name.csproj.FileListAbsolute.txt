@@ -1,0 +1,15 @@
+C:\repo\subjects\meet_thpl\lesson1\Example002_Hello_name\bin\Debug\net7.0\Example002_Hello_name.exe
+C:\repo\subjects\meet_thpl\lesson1\Example002_Hello_name\bin\Debug\net7.0\Example002_Hello_name.deps.json
+C:\repo\subjects\meet_thpl\lesson1\Example002_Hello_name\bin\Debug\net7.0\Example002_Hello_name.runtimeconfig.json
+C:\repo\subjects\meet_thpl\lesson1\Example002_Hello_name\bin\Debug\net7.0\Example002_Hello_name.dll
+C:\repo\subjects\meet_thpl\lesson1\Example002_Hello_name\bin\Debug\net7.0\Example002_Hello_name.pdb
+C:\repo\subjects\meet_thpl\lesson1\Example002_Hello_name\obj\Debug\net7.0\Example002_Hello_name.csproj.AssemblyReference.cache
+C:\repo\subjects\meet_thpl\lesson1\Example002_Hello_name\obj\Debug\net7.0\Example002_Hello_name.GeneratedMSBuildEditorConfig.editorconfig
+C:\repo\subjects\meet_thpl\lesson1\Example002_Hello_name\obj\Debug\net7.0\Example002_Hello_name.AssemblyInfoInputs.cache
+C:\repo\subjects\meet_thpl\lesson1\Example002_Hello_name\obj\Debug\net7.0\Example002_Hello_name.AssemblyInfo.cs
+C:\repo\subjects\meet_thpl\lesson1\Example002_Hello_name\obj\Debug\net7.0\Example002_Hello_name.csproj.CoreCompileInputs.cache
+C:\repo\subjects\meet_thpl\lesson1\Example002_Hello_name\obj\Debug\net7.0\Example002_Hello_name.dll
+C:\repo\subjects\meet_thpl\lesson1\Example002_Hello_name\obj\Debug\net7.0\refint\Example002_Hello_name.dll
+C:\repo\subjects\meet_thpl\lesson1\Example002_Hello_name\obj\Debug\net7.0\Example002_Hello_name.pdb
+C:\repo\subjects\meet_thpl\lesson1\Example002_Hello_name\obj\Debug\net7.0\Example002_Hello_name.genruntimeconfig.cache
+C:\repo\subjects\meet_thpl\lesson1\Example002_Hello_name\obj\Debug\net7.0\ref\Example002_Hello_name.dll
