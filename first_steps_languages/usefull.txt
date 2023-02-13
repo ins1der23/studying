@@ -1,3 +1,8 @@
 double a = double.Parse(Console.ReadLine());
 Console.WriteLine("{0} является квадратом {1}",x,y);
 if (Math.Sqrt(x)==y)
+Random rnd = new Random();
+int x = rnd.Next(1,9999);
+coordY2=Math.Abs(coordY2); // в положительное
+Math.Pow(value, power) // степень
+Math.Sqrt(DistX*DistX+DistY*DistY) // квадратный корень
