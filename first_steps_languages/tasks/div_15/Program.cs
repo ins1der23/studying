@@ -1,26 +1,20 @@
-﻿Random rnd = new Random();
-int x = rnd.Next(1,9999);
-Console.WriteLine(x);
-if (x % 7 == 0)
+﻿// Дано число. Проверить кратно ли оно 7 и 23 (блок-схема, c#)
+
+void DivisibilityTo7And23(int ver)
 {
-    x = x / 7;
-    if (x % 23 == 0)
+    if (ver % 7 == 0)
     {
-        Console.WriteLine("Число кратно 7 и 23");
+        ver = ver / 7;
+        if (ver % 23 == 0) Console.WriteLine("Число кратно 7 и 23");
+        else Console.WriteLine("Число кратно 7");
     }
     else
     {
-        Console.WriteLine("Число кратно 7");
+        if (ver % 23 == 0) Console.WriteLine("Число кратно 23");
+        else Console.WriteLine("Число не кратно 7 и 23");
     }
 }
-else
-{
-    if (x % 23 == 0)
-    {
-        Console.WriteLine("Число кратно 23");
-    }
-    else
-    {
-        Console.WriteLine("Число не кратно 7 и 23");
-    }
-}
+
+Console.WriteLine("Введите число");
+int SomeNumber = int.Parse(Console.ReadLine());
+DivisibilityTo7And23(SomeNumber);
