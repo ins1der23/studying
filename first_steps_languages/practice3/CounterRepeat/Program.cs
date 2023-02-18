@@ -17,7 +17,7 @@ void FillAndPrintArray(int[] SomeArray)
     int index = 0;
     while (index < size)
     {
-        SomeArray[index] = new Random().Next(1, 3);
+        SomeArray[index] = new Random().Next(1, 10);
         Console.Write("{0} ", SomeArray[index]);
         index++;
     }
@@ -66,23 +66,26 @@ void FindNumbers(int[] SomeArray)
     int index = TempSize - 1;
     int ToFind = SomeArray[TempSize - 1];
     int Counter = 0;
-    
-        while (index >= 0)
+    while (TempSize >= 0)
     {
-        if (ToFind == SomeArray[index]) 
+        while (index >= 0)
         {
-            Counter++;
+            if (ToFind == SomeArray[index])
+            {
+                Counter++;
+            }
+            index--;
         }
-    index--;
+        Console.WriteLine("Число {0} встречается {1}р.", ToFind, Counter);
+        TempSize = TempSize - Counter;
+        if (TempSize <= 0) break;
+        ToFind = SomeArray[TempSize - 1];
+        index = TempSize - 1;
+        Counter = 0;
     }
-    Console.WriteLine("Число {0} встречается {1}р.", ToFind, Counter);
-    TempSize = TempSize - Counter;
-    Counter = 1;
-    
-    
 }
 
-int[] NextArray = new int[3];
+int[] NextArray = new int[10];
 FillAndPrintArray(NextArray);
 SortArray(NextArray);
 PrintArray(NextArray);
