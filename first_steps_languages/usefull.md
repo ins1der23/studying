@@ -27,12 +27,12 @@ break
 
 bool Check(int AnyNumber)
 {
-    return AnyNumber % 7 ==0 && AnyNumber % 23 ==0;
+return AnyNumber % 7 ==0 && AnyNumber % 23 ==0;
 }
 
 int ToNumber(string message)
 {
-    Console.Write(message);
-    int result = int.Parse(Console.ReadLine());
-    return result;
+Console.Write(message);
+int result = int.Parse(Console.ReadLine());
+return result;
 }

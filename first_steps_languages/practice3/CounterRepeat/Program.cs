@@ -1,40 +1,49 @@
-﻿// дан массив: наполнен числами от 1 до N
+﻿using System.Linq.Expressions;
+// дан массив: наполнен числами от 1 до N
 // Задача: сколько раз какое число встречается
 // 0 1 2 3 4 5 6 7 8 9 
 // 1 3 1 2 1 2 4 5 1 2 
-
-//0,2
 
 // 1 - 4р
 // 2 - 3р
 // 3 - 1р
 // 4 - 2р
 // 5 - 2р
-
-void FillAndPrintArray(int[] SomeArray)
+int Getnumber(string text)
 {
+    System.Console.Write(text);
+    return int.Parse(Console.ReadLine());
+}
+int[] CreateArray(int size)
+{
+  return new int[size];
+}
+string FillAndPrintArray(int[] SomeArray)
+{
+    string output = String.Empty;
     int size = SomeArray.Length;
     int index = 0;
     while (index < size)
     {
         SomeArray[index] = new Random().Next(1, 10);
-        Console.Write("{0} ", SomeArray[index]);
+        output = output + " " + SomeArray[index];
         index++;
     }
-    Console.WriteLine(" ");
+    return output;
 }
-void PrintArray(int[] SomeArray)
+string PrintArray(int[] SomeArray)
 {
+    string output = String.Empty;
     int size = SomeArray.Length;
     int index = 0;
     while (index < size)
     {
-        Console.Write("{0} ", SomeArray[index]);
+        output = output + " " + SomeArray[index];
         index++;
     }
-    Console.WriteLine(" ");
-}
 
+    return output;
+}
 void SortArray(int[] SomeArray)
 {
     int TempSize = SomeArray.Length;
@@ -59,7 +68,6 @@ void SortArray(int[] SomeArray)
         TempSize--;
     }
 }
-
 void FindNumbers(int[] SomeArray)
 {
     int TempSize = SomeArray.Length;
@@ -85,8 +93,11 @@ void FindNumbers(int[] SomeArray)
     }
 }
 
-int[] NextArray = new int[10];
-FillAndPrintArray(NextArray);
+
+int size = Getnumber("Введите размер массива ");
+int[] NextArray = CreateArray(size);
+System.Console.WriteLine(FillAndPrintArray(NextArray));
 SortArray(NextArray);
-PrintArray(NextArray);
+System.Console.WriteLine(PrintArray(NextArray));
 FindNumbers(NextArray);
+
