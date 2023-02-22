@@ -93,7 +93,7 @@ public class Shared
     public static string Task(string message)
     {
         string output = String.Empty;
-        return output + Environment.NewLine + "Следующая задача: " + message.ToLower() + ".";
+        return output + Environment.NewLine + message.ToUpper() + ".";
     }
 
     // Случайное из массива
@@ -142,6 +142,19 @@ public class Shared
             }
         }
         return output;
+    }
+
+    // Третья цифра числа
+    public static int ThirdDigit(int number)
+    {
+        return number % 10;
+    }
+
+    // Вторая цифра числа
+
+    public static int SecondDigit(int number)
+    {
+        return (number / 10) % 10;
     }
 }
 
