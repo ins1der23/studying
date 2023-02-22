@@ -35,7 +35,7 @@ void PrintMassive(int[] col)
     int position = 0;
     while (position < count)
     {
-        Console.Write("{0} ", col[position]);
+        Console.Write($"{col[position]} ");
         position++;
     }
     Console.WriteLine(" ");
@@ -116,8 +116,8 @@ string Replace(string text, char oldValue, char newValue)
     int length = text.Length;
     for (int i = 0; i < length; i++)
     {
-        if (text[i] == oldValue) result = result + $"{newValue}";
-        else result = result + $"{text[i]}";
+        if (text[i] == oldValue) result = result + newValue;
+        else result = result + text[i];
     }
     return result;
 }
