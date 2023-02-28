@@ -1,4 +1,3 @@
-using System;
 public class Shared
 {
     // Проверка на квадрат числа
@@ -30,7 +29,9 @@ public class Shared
     // Число из диапазона для ручного ввода
     public static int RangeForNumber(int check, int bound1, int bound2, string message)
     {
-        while (check < bound1 || check > bound2)
+        bool flag = true;
+        flag = (check < bound1 || check > bound2);
+        while (flag)
         {
             Console.WriteLine(message);
             check = GetInteger("Введите еще раз ");
@@ -39,16 +40,28 @@ public class Shared
     }
 
     // Возврат int числа
-    public static int GetInteger(string message)
+    public static int GetInteger(string text)
     {
-        Console.Write(message);
-        return int.Parse(Console.ReadLine());
+        int num = 0;
+        bool flag = true;
+        do
+        {
+            Console.Write($"{text}: ");
+            flag = int.TryParse(Console.ReadLine(), out num);
+        } while (!flag);
+        return num;
     }
     // Возврат double числа
-    public static double GetDouble(string message)
+    public static double GetDouble(string text)
     {
-        Console.Write(message);
-        return double.Parse(Console.ReadLine());
+        double num = 0;
+        bool flag = true;
+        do
+        {
+            Console.Write($"{text}: ");
+            flag = double.TryParse(Console.ReadLine(), out num);
+        } while (!flag);
+        return num;
     }
     // Создание dbl массива
     public static double[] CreateDblArray(int size)
@@ -156,7 +169,15 @@ public class Shared
     {
         return (number / 10) % 10;
     }
+
+    // Удалить вторую цифру трёхзначного числа 
+
+    public static int DeleteSecondDigit(int number)
+    {
+        return number / 100 + number % 10;
+    }
 }
+
 
 
 
