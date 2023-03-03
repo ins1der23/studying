@@ -1,18 +1,18 @@
 public class Shared
 {
     public static int GetInteger(string text)
-  {
-    int num = 0;
-    bool flag = true;
-    do
     {
-      Console.Write($"{text}: ");
-      flag = int.TryParse(Console.ReadLine(), out num);
-    } while (!flag);
-    return num;
-  }
+        int num = 0;
+        bool flag = true;
+        do
+        {
+            Console.Write($"{text}: ");
+            flag = int.TryParse(Console.ReadLine(), out num);
+        } while (!flag);
+        return num;
+    }
 
-  public static int RangeForNumber(int check, int bound1, int bound2, string message)
+    public static int RangeForNumber(int check, int bound1, int bound2, string message)
     {
         bool flag = true;
         flag = (check < bound1 || check > bound2);
@@ -20,12 +20,18 @@ public class Shared
         {
             Console.WriteLine(message);
             check = GetInteger("Введите еще раз ");
+            flag = (check < bound1 || check > bound2);
         }
         return check;
     }
-    public static int[,] CreateMatrix(int rows, int columns)
+    public static int[,] CreateMatrix(string message)
     {
-        int[,] someArray = new int[rows,columns];
+        Console.WriteLine(message);
+        int rows = GetInteger("Введите количество строк в матрице");
+        rows = RangeForNumber(rows, 1, 45000, "Неверное количество строк");
+        int columns = GetInteger("Введите количество столбцов в таблице");
+        columns = RangeForNumber(columns, 1, 45000, "Неверное количество столбцов");
+        int[,] someArray = new int[rows, columns];
         return someArray;
     }
     public static string PrintMatrix(int[,] anyMatrix)
@@ -41,7 +47,14 @@ public class Shared
         }
         return output;
     }
-    public static void FillMatrix(int[,] anyMatrix, int startBound, int endBound)
+
+    public static bool MultiplyMatrixCheck(int[,] firstMatrix, int[,] secondMatrix)
+    {
+
+        return firstMatrix.GetLength(1) != secondMatrix.GetLength(0);
+    }
+
+    public static void FillMatrixRandom(int[,] anyMatrix, int startBound, int endBound)
     {
         for (int rows = 0; rows < anyMatrix.GetLength(0); rows++)
         {
@@ -88,6 +101,31 @@ public class Shared
         if (number == 1 || number == 2) return 1;
         else return Fibo(number - 1) + Fibo(number - 2);
     }
+
+    public static int[,] MultiplyMatrix(int[,] firstMatrix, int[,] secondMatrix)
+    {
+        int[,] resultMatrix = new int[firstMatrix.GetLength(0), secondMatrix.GetLength(1)];
+        System.Console.WriteLine(PrintMatrix(resultMatrix));
+        for (int i = 0; i < resultMatrix.GetLength(0); i++)
+        {
+            for (int j = 0; j < resultMatrix.GetLength(1); j++)
+            {
+                for (int k = 0; k < firstMatrix.GetLength(1); k++)
+                {
+                    resultMatrix[i, j] += (firstMatrix[i, k] * secondMatrix[k, j]);
+
+                }
+            }
+        }
+        return resultMatrix;
+
+
+
+    }
+
+
+
+
 
 }
 

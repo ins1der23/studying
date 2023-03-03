@@ -15,11 +15,10 @@
 using static Shared;
 
 
-int[,] matrix = new int[3, 4]; // [строки, столбцы]
-PrintMatrix(matrix);
-Console.WriteLine();
-FillMatrix(matrix);
-PrintMatrix(matrix);
+int[,] matrix = CreateMatrix(3, 4);
+Console.WriteLine(PrintMatrix(matrix));
+FillMatrix(matrix, 1, 10);
+Console.WriteLine(PrintMatrix(matrix));
 
 
 
