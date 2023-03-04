@@ -1,52 +1,25 @@
 using System;
 public class Shared
 {
-    public static int[,] CreateMatrix(int rows, int columns)
+public static int GetInteger(string text)
+  {
+    int num = 0;
+    bool flag = true;
+    do
     {
-        int[,] someArray = new int[rows, columns];
-        return someArray;
-    }
+      Console.Write($"{text}: ");
+      flag = int.TryParse(Console.ReadLine(), out num);
+    } while (!flag);
+    return num;
+  }
 
-    public static void FillMatrix(int[,] anyMatrix, int row = 0, int column = 0)
+    public static bool PositiveCheck(int b)
     {
-        if (row >= anyMatrix.GetLength(0) || column >= anyMatrix.GetLength(1)) return;
-        anyMatrix[row, column] = new Random().Next(1,99);
-        FillMatrix(anyMatrix, row, column + 1);
-        FillMatrix(anyMatrix, row + 1, column);
+        return b >= 0;
     }
-
-    public static string MatrixToString(int[,] anyMatrix)
+        public static bool PositiveCheck(double b)
     {
-        string output = String.Empty;
-        for (int rows = 0; rows < anyMatrix.GetLength(0); rows++)
-        {
-            for (int columns = 0; columns < anyMatrix.GetLength(1); columns++)
-            {
-                output = output + anyMatrix[rows, columns] + " ";
-            }
-            output = output + Environment.NewLine;
-        }
-        return output;
+        return b >= 0;
     }
-    public static int[] CreateArray(int size)
-    {
-        return new int[size];
-    }
-
-    public static void ChangeLines(int[,] anyMatrix, int lineFrom, int lineTo, int[] tempArray, int i = 0)
-    {
-        if (i >= tempArray.Length) return;
-        tempArray[i] = anyMatrix[lineTo, i];
-        anyMatrix[lineTo, i] = anyMatrix[lineFrom, i];
-        anyMatrix[lineFrom,i] = tempArray[i];
-        ChangeLines(anyMatrix, lineFrom, lineTo, tempArray, i + 1);
-    }
-    public static string ArrayJoinToString(int[] array)
-    {
-        return $"{String.Join(' ', array)}";
-    }
-
-
-
-
 }
+
