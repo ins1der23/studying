@@ -1,4 +1,5 @@
 using System;
+
 public class MatrixService
 {
     public static int[,] CreateMatrix(int i, int j)
@@ -6,12 +7,12 @@ public class MatrixService
         int[,] someArray = new int[i, j];
         return someArray;
     }
-    public static void FillMatrixRecurs(int[,] anyMatrix, int i = 0, int j = 0)
+    public static void FillMatrixRecurs(int[,] anyMatrix, int i = 0, int j = 0, int start = 1, int end = 100)
     {
         int rows = anyMatrix.GetLength(0);
         int columns = anyMatrix.GetLength(1);
         if (i >= rows || j >= columns) return;
-        anyMatrix[i, j] = new Random().Next(1, 99);
+        anyMatrix[i, j] = new Random().Next(start, end);
         FillMatrixRecurs(anyMatrix, i, j + 1);
         FillMatrixRecurs(anyMatrix, i + 1, j);
     }
