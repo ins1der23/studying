@@ -44,8 +44,20 @@ public class RowToColumn
         return (rows, columns);
     }
 
+    public static void RowToColumnSwap(int[,] anyMatrix, int[,] swappedMatrix, int i = 0, int j = 0)
+    {
+        int size = anyMatrix.GetLength(0);
+        if (i >= size || j >= size) return;
+        else
+        {
+            swappedMatrix[i, j] = anyMatrix[j, i];
+            RowToColumnSwap(anyMatrix, swappedMatrix, i, j + 1);
+            RowToColumnSwap(anyMatrix, swappedMatrix, i + 1, j);
+            return;
+        }
 
 
+    }
 
 
 }

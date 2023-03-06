@@ -19,7 +19,9 @@ public static class Client
         int[,] someMatrix = CreateMatrix(sizes.Item1, sizes.Item2);
         FillMatrixRecurs(someMatrix);
         Console.WriteLine(MatrixToString(someMatrix));
-
+        int[,] swapMatrix = CreateMatrix(sizes.Item1, sizes.Item2);
+        RowToColumnSwap(someMatrix, swapMatrix);
+        Console.WriteLine(MatrixToString(swapMatrix));
     }
 
     public static void RunPascalTriangle()
