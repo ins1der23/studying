@@ -31,7 +31,7 @@ public static class Client
         Console.WriteLine(MatrixToString(someMatrix));
         int startJ = RoundHalf(columns) - 1;
         int startI = rows -1;
-        // Console.WriteLine(startJ);
+        // Console.WriteLine("1");
         StepMatrixFilling(someMatrix, 0, startJ);
         Console.WriteLine(MatrixToString(someMatrix));
     }

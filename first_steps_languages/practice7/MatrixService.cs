@@ -41,9 +41,9 @@ public class MatrixService
         anyMatrix[lineFrom, i] = temp;
         ChangeLines(anyMatrix, lineFrom, lineTo, temp, i + 1);
     }
-    public static string ArrayJoinToString(int[] array)
+    public static string ArrayJoinToString(int[] matrix)
     {
-        return $"{String.Join(' ', array)}";
+        return $"{String.Join(' ', matrix)}";
     }
     public static int GetIntegerForSquare(string text)
     {
@@ -124,14 +124,17 @@ public class MatrixService
     {
         int rows = preparedMatrix.GetLength(0);
         int columns = preparedMatrix.GetLength(1);
-        if (i >= rows || j >= columns || j < 0 || i < 0) return;
+        if (i >= rows || j >= columns || j < 0 || i < 0 || preparedMatrix[i,j] != 0) return;
         else if (preparedMatrix[i, j] == 0)
         {
             preparedMatrix[i, j] = n;
-            StepMatrixFilling(preparedMatrix, i, j - 1, n * 2);
-            StepMatrixFilling(preparedMatrix, i + 1, j + 5);
-            StepMatrixFilling(preparedMatrix, i, j + 1, n * 2 + 1);
+            StepMatrixFilling(preparedMatrix, i + 1, j - 1, n + 1);
+            StepMatrixFilling(preparedMatrix, i - 4, j - 5);
+            StepMatrixFilling(preparedMatrix, i + 1, j + 1, n + 1);
+            StepMatrixFilling(preparedMatrix, i - 4, j - 5);
             return;
         }
     }
 }
+
+   
