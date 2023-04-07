@@ -11,32 +11,38 @@ using System.Text;
 // задать ячейки массиа
 // выполнить сравнение ячеек
 
-string[] strs = { "flower","flow","flight" };
-int size = strs.Length;
-int minLength = strs[0].Length;
-int minIndex = 0;
-for (int i = 1; i < size; i++)
+string LongestCommonPrefix(string[] strs)
 {
-    if (strs[i].Length < minLength)
+    int size = strs.Length;
+    int minLength = strs[0].Length;
+    int minIndex = 0;
+    for (int i = 1; i < size; i++)
     {
-        minLength = strs[i].Length;
-        minIndex = i;
+        if (strs[i].Length < minLength)
+        {
+            minLength = strs[i].Length;
+            minIndex = i;
+        }
     }
-}
-char[] compare = strs[minIndex].ToCharArray();
-char[] result = new char[minLength];
-
-
-for (int i = 0; i < minLength; i++)
-{
-    int count = 0;
-    foreach (var item in strs)
+    char[] compare = strs[minIndex].ToCharArray();
+    char[] result = new char[minLength];
+    for (int i = 0; i < minLength; i++)
     {
-        if (item[i] == compare[i]) count++;
+        int count = 0;
+        foreach (var item in strs)
+        {
+            if (item[i] == compare[i]) count++;
+        }
+        if (count == size) result[i] = compare[i];
+        else break;
     }
-    if (count == size) result[i] = compare[i];
+    string output = String.Empty;
+    foreach (var item in result)
+    {
+        if (item != 0) output += item;
+    }
+    return output;
 }
 
-    string output = new string(result);
-    Console.WriteLine(output);
-    
+string[] words = { "circle", "cir", "cirjs" };
+Console.WriteLine(LongestCommonPrefix(words));
