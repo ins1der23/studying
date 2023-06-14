@@ -1,35 +1,34 @@
-﻿using BenchmarkDotNet.Attributes;
-using BenchmarkDotNet.Running;
-using System.Text;
- 
-BenchmarkRunner.Run<StringTest>();
- 
-public class StringTest
-{
-    string[] numbers = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten" };
-    [Benchmark]
-    public string WithStringBuilder()
-    {
-        StringBuilder stringBuilder = new StringBuilder();
-        foreach (string s in numbers)
-        {
-            stringBuilder.Append(s);
-            stringBuilder.Append(" ");
-        }
-        return stringBuilder.ToString();
-    }
-    [Benchmark]
-    public string WithConcatenation()
-    {
-        string result = "";
-        foreach (string s in numbers) result = result + s + " ";
-        return result;
-    }
-    [Benchmark]
-    public string WithInterpolation()
-    {
-        string result = "";
-        foreach (string s in numbers) result = $"{result}{s} ";
-        return result;
-    }
-}
+﻿using System.Runtime.InteropServices;
+using System.Linq;
+using System;
+double number = 1230.45;
+string toString = $"{number}";
+Console.WriteLine(toString);
+
+toString = number.ToString();
+Console.WriteLine(toString);
+toString = toString.Replace(",", "");
+Console.WriteLine(toString);
+// int sum = 0;
+// foreach (var digit in toString)
+// {
+//     sum += digit - '0';
+//     Console.WriteLine(sum);
+// }
+
+toString = toString.Substring(1, toString.Length - 2);
+Console.WriteLine(toString);
+
+
+// "This is an example!" ==> "sihT si na !elpmaxe"
+// "double  spaces"      ==> "elbuod  secaps"
+
+string sentence = "double  spaces";
+
+var result = String.Join(" ", sentence.Split().Select(x => String.Concat(x.Reverse())));
+                     
+
+
+
+ Console.WriteLine(result);
+ Console.WriteLine(String.Join(" ",result));
