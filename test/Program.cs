@@ -1,34 +1,57 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Reflection;
+using System.Collections.Specialized;
+using System.Text;
+using System.Data.Common;
+using System.Runtime.InteropServices;
 using System.Linq;
 using System;
-double number = 1230.45;
-string toString = $"{number}";
-Console.WriteLine(toString);
+using MySql.Data.MySqlClient;
+using Data;
+using Dapper;
+using Models;
 
-toString = number.ToString();
-Console.WriteLine(toString);
-toString = toString.Replace(",", "");
-Console.WriteLine(toString);
-// int sum = 0;
-// foreach (var digit in toString)
-// {
-//     sum += digit - '0';
-//     Console.WriteLine(sum);
-// }
+DBConnection user = DBConnection.Instance("localhost", "oilproject");
+bool connectFlag = false;
+while (!connectFlag)
+{
+    user = DBConnection.Instance("localhost", "oilproject");
+    await user.ConnectAsync();
+    connectFlag = user.IsConnect();
+}
+user.Close();
 
-toString = toString.Substring(1, toString.Length - 2);
-Console.WriteLine(toString);
+await user.ConnectAsync();
 
+string selectQuery = $@"select * from positions";
+var positions = user.Connection.Query<Position>(selectQuery).ToList();
 
-// "This is an example!" ==> "sihT si na !elpmaxe"
-// "double  spaces"      ==> "elbuod  secaps"
-
-string sentence = "double  spaces";
-
-var result = String.Join(" ", sentence.Split().Select(x => String.Concat(x.Reverse())));
-                     
+selectQuery = $@"select * from workers where positionId = @positionId";
+var workers = user.Connection.Query<Worker>(selectQuery, new { positionId = 1 }).ToList();
 
 
 
- Console.WriteLine(result);
- Console.WriteLine(String.Join(" ",result));
+
+
+
+
+foreach (var position in positions)
+{
+    Console.WriteLine(position);
+}
+
+foreach (var worker in workers)
+{
+    Console.WriteLine($"{worker.Id}. {worker.FullName} {worker.Age} {positions[worker.PositionId - 1].Name}");
+}
+
+user.Close();
+
+
+
+
+
+
+
+
+
+
