@@ -1,7 +1,8 @@
 using System;
 using MySql.Data.MySqlClient;
-namespace Data
 
+
+namespace Data
 {
     public class DBConnection
     {
@@ -10,13 +11,14 @@ namespace Data
         public string UserName { get; private set; }
         private string Password { get; set; }
         public MySqlConnection? Connection { get; set; }
+        public bool IsConnect { get; private set; }
 
         private DBConnection(string server, string databaseName)
         {
             this.Server = server;
             this.DatabaseName = databaseName;
-            this.UserName = "root";
-            this.Password = "Hacker$arefuck1ngevil";
+            this.UserName = "root";//SetUsername();
+            this.Password = "Hacker$arefuck1ngevil";//SetPassword();
         }
 
         private static DBConnection? _instance = null;
@@ -27,8 +29,9 @@ namespace Data
             return _instance;
         }
 
-        private string SetUsername() => String.Empty + Console.ReadLine();
-        private string SetPassword() => String.Empty + Console.ReadLine();
+        // private string SetUsername() => InOut.GetString(MenuText.userName);
+        // private string SetPassword() => InOut.GetString(MenuText.password);
+
         public async Task ConnectAsync()
         {
             if (Connection == null)
@@ -38,26 +41,23 @@ namespace Data
                 {
                     Connection = new MySqlConnection(connstring);
                     await Connection.OpenAsync();
+                    IsConnect = true;
                 }
                 catch (MySqlException)
                 {
-                    Console.WriteLine("Неверный ввод данных");
-                    _instance = null;
+                    Console.WriteLine("Error");
                     Connection = null;
+                    _instance = null;
                 }
             }
         }
-        public bool IsConnect()
-        {
-            if (Connection !=null) return true;
-            else return false;
-        }
-            
+
         public void Close()
         {
             if (Connection != null)
                 Connection.Close();
             Connection = null;
+            IsConnect = false;
         }
     }
 }

@@ -16,33 +16,19 @@ while (!connectFlag)
 {
     user = DBConnection.Instance("localhost", "oilproject");
     await user.ConnectAsync();
-    connectFlag = user.IsConnect();
+    connectFlag = user.IsConnect;
 }
 user.Close();
 
-await user.ConnectAsync();
+Locations locations = new Locations();
 
-string selectQuery = $@"select * from positions";
-var positions = user.Connection.Query<Position>(selectQuery).ToList();
+await locations.GetFromSqlAsync(user);
+Console.WriteLine(locations);
 
-selectQuery = $@"select * from workers where positionId = @positionId";
-var workers = user.Connection.Query<Worker>(selectQuery, new { positionId = 1 }).ToList();
+Addresses addresses= new Addresses();
 
-
-
-
-
-
-
-foreach (var position in positions)
-{
-    Console.WriteLine(position);
-}
-
-foreach (var worker in workers)
-{
-    Console.WriteLine($"{worker.Id}. {worker.FullName} {worker.Age} {positions[worker.PositionId - 1].Name}");
-}
+await addresses.GetFromSqlAsync(user);
+Console.WriteLine(addresses);
 
 user.Close();
 
