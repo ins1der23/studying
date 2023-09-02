@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 using System.Linq;
 using System;
 using MySql.Data.MySqlClient;
-using Data;
+using Connection;
 using Dapper;
 using Models;
 

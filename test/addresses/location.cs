@@ -1,6 +1,6 @@
 using MySql.Data.MySqlClient;
 using Dapper;
-using Data;
+using Connection;
 
 namespace Models
 {

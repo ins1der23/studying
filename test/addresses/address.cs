@@ -1,6 +1,6 @@
 using MySql.Data.MySqlClient;
 using Dapper;
-using Data;
+using Connection;
 using System.Linq;
 
 namespace Models
@@ -15,7 +15,6 @@ namespace Models
         public virtual District District { get; set; }
         public int LocationId { get; set; }
         public virtual Location Location { get; set; }
-
         public int StreetId { get; set; }
         public virtual Street Street { get; set; }
         public string? HouseNum { get; set; }
@@ -28,10 +27,13 @@ namespace Models
             Location = new();
             Street = new();
         }
-
+        public static Address Create()
+        {
+            Address address = new();
+            Street = Street.Create();
+        }
         public override string ToString() => $"ID:{Id}, {City.Name}, {Location.Name}, {Street.Name}, {HouseNum}";
     }
-
     class Addresses
     {
         List<Address> AddressList { get; set; }
@@ -58,7 +60,7 @@ namespace Models
                     var locations = temp.Read<Location>();
                     var streets = temp.Read<Street>();
                     var addresses = temp.Read<Address>();
-                    addresses = addresses.Select(x => new Address
+                    AddressList = addresses.Select(x => new Address
                     {
                         Id = x.Id,
                         CityId = x.CityId,
@@ -70,21 +72,11 @@ namespace Models
                         StreetId = x.StreetId,
                         Street = streets.Where(s => s.Id == x.StreetId).First(),
                         HouseNum = x.HouseNum
-                    });
-                    AddressList = addresses.ToList();
+                    }).ToList();
                 }
-
-
-
-
-                // var temp = await user.Connection.QueryAsync<Address>(selectQuery);
-
-
-                // AddressList.ToList();
                 user.Close();
             }
         }
-
         public override string ToString()
         {
             string output = String.Empty;
@@ -93,6 +85,4 @@ namespace Models
             return output;
         }
     }
-
-
 }

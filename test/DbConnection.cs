@@ -2,7 +2,7 @@ using System;
 using MySql.Data.MySqlClient;
 
 
-namespace Data
+namespace Connection
 {
     public class DBConnection
     {
