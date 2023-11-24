@@ -1,0 +1,8 @@
+.vscode
+content.txt
+firs_steps_java.code-workspace
+homeworks
+log.txt
+log.txt.lck
+practice
+repeated.txt

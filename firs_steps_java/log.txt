@@ -1,0 +1,20 @@
+но€б. 24, 2023 5:18:55 PM practice_2.GetFolderContent main
+INFO: Content get
+но€б. 24, 2023 5:18:55 PM practice_2.GetFolderContent writeToFile
+INFO: .vscode
+но€б. 24, 2023 5:18:55 PM practice_2.GetFolderContent writeToFile
+INFO: content.txt
+но€б. 24, 2023 5:18:55 PM practice_2.GetFolderContent writeToFile
+INFO: firs_steps_java.code-workspace
+но€б. 24, 2023 5:18:55 PM practice_2.GetFolderContent writeToFile
+INFO: homeworks
+но€б. 24, 2023 5:18:55 PM practice_2.GetFolderContent writeToFile
+INFO: log.txt
+но€б. 24, 2023 5:18:55 PM practice_2.GetFolderContent writeToFile
+INFO: log.txt.lck
+но€б. 24, 2023 5:18:55 PM practice_2.GetFolderContent writeToFile
+INFO: practice
+но€б. 24, 2023 5:18:55 PM practice_2.GetFolderContent writeToFile
+INFO: repeated.txt
+но€б. 24, 2023 5:18:55 PM practice_2.GetFolderContent writeToFile
+INFO: SUCCESS
