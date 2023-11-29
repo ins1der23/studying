@@ -2,7 +2,7 @@
 // повторений слова TEST и метод, который запишет эту строку в
 // простой текстовый файл, обработайте исключения.
 
-package practice_2;
+
 
 import java.io.FileWriter;
 import java.io.IOException;

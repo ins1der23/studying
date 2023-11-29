@@ -2,7 +2,7 @@
 // определяет является ли строка палиндромом (возвращает
 // boolean значение).
 
-package practice_2;
+
 
 public class Palindrom {
     public static void main(String[] args) {

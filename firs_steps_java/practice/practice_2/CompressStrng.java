@@ -2,7 +2,7 @@
 // 📌 Пример: вход aaaabbbcdd.
 // результат a4b3c1d2.
 
-package practice_2;
+
 
 public class CompressStrng {
     public static void main(String[] args) {
