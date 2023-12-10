@@ -15,7 +15,7 @@ import java.util.Arrays;
 
 public class LogBubbleSort {
     private static File log = new File("log.txt");
-    private static FileWriter fileWriter;
+    
 
     public static void main(String[] args) {
         int[] mas = new int[] { 9, 4, 8, 3, 1 };
