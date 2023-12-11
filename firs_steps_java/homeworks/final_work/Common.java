@@ -7,8 +7,9 @@ public class Common {
     public static int getInteger(String invite) {
         int result = 0;
         boolean flag = true;
+        System.out.print("\033[H\033[2J");
         while (flag) {
-            System.out.println("\n" + invite + ":");
+            showString(invite + ":", false);
             String temp = scanner.nextLine();
             try {
                 result = Integer.parseInt(temp);
@@ -37,9 +38,21 @@ public class Common {
     }
 
     public static String getString(String invite) {
-        System.out.println(invite);
+        showString(invite, true);
         String output = scanner.nextLine();
         return output;
+    }
+    public static void pressEnter(String invite) {
+        showString(invite, false);
+        scanner.nextLine();
+        return;
+    }
+
+    public static void showString(String someString, boolean clear) {
+        if (clear) {
+            System.out.print("\033[H\033[2J");
+        }
+        System.out.println(someString);
     }
 
     public static void showStringList(ArrayList<String> options) {
@@ -51,7 +64,7 @@ public class Common {
         }
     }
 
-    public static void ShowMenu(String name, String[] options, boolean clear) {
+    public static void showMenu(String name, String[] options, boolean clear) {
         if (clear) {
             System.out.print("\033[H\033[2J");
         }
@@ -65,7 +78,7 @@ public class Common {
     }
 
     public static int getChoiceFromMenu(String name, String[] options, String invite, boolean clear) {
-        ShowMenu(name, options, clear);
+        showMenu(name, options, clear);
         return getInteger(invite, 1, options.length);
     }
 

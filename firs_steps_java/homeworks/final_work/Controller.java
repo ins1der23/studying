@@ -21,10 +21,15 @@ public class Controller {
                     }
                     break;
                 case 2: // Найти ноутбук
+                    Request request = getSearchingRequest(notebooks);
+                    Common.showString(Messages.requestParameters + "\n", true);
+                    Common.showString(request.toString(), false);
+                    Common.pressEnter(Messages.pressEnter);
                     break;
 
                 case 3: // Добавить ноутбук
-                    notebook = new Notebook(getAddingRequest().toHashMap());
+                    request = getAddingRequest();
+                    notebook = new Notebook(request.toHashMap());
                     System.out.println(notebook);
                     choice = Common.getChoiceFromMenu(Messages.addNotebook, Messages.yesOrNo, Messages.chooseOption,
                             false);
@@ -42,16 +47,22 @@ public class Controller {
 
     }
 
-    private static Request getSearchingRequest() {
+    private static Request getSearchingRequest(Notebooks notebooks) {
         Request request = new Request();
-        String brandName = Common.getString(Messages.inputBrand);
-        String model = Common.getString(Messages.inputModel);
-        String cpuName = Common.getString(Messages.inputCpuName);
-        String cpumodel = Common.getString(Messages.inputCpuModel);
-        int ramVolume = Common.getInteger(Messages.inputRAM);
-        int ssdVolume = Common.getInteger(Messages.inputSSD);
-        String os = Common.getString(Messages.inputOs);
-        int price = Common.getInteger(Messages.inputPrice);
+        int choice;
+        choice = Common.getChoiceFromMenu(Messages.inputBrand, notebooks.getFields("brandName"), Messages.chooseOption,
+                true);
+        String brandName = notebooks.getFields("brandName")[choice - 1];
+        String model = Common.getString(Messages.inputModel + Messages.orBlankField);
+        String cpuName = Common.getString(Messages.inputCpuName + Messages.orBlankField);
+        String cpumodel = Common.getString(Messages.inputCpuModel + Messages.orBlankField);
+        int ramVolume = Common.getInteger(Messages.inputRAM + Messages.orZero);
+        int ssdVolume = Common.getInteger(Messages.inputSSD + Messages.orZero);
+        choice = Common.getChoiceFromMenu(Messages.inputOs, notebooks.getFields("os"), Messages.chooseOption,
+                true);
+        String os = notebooks.getFields("os")[choice - 1];
+        int price = Common.getInteger(Messages.inputPrice + Messages.orZero);
+
         request.add("brandName", brandName);
         request.add("model", model);
         request.add("cpuName", cpuName);

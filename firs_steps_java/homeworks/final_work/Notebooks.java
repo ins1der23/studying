@@ -60,12 +60,16 @@ public class Notebooks implements Iterable<Notebook> {
         }
         notebookList = temp;
     }
-
-    public String[] getKeys(String key) {
-        String[] output = new String[notebookList.size()];
-        int i = 0;
+    // поучение значений полей ноутбуков в списке по ключу
+    public String[] getFields(String key) {
+        HashSet<String> temp = new HashSet<>();
         for (Notebook notebook : notebookList) {
-            output[i++] = (notebook.getParameters().get(key));
+            temp.add(notebook.getParameters().get(key));
+        }
+        String[] output = new String[temp.size()];
+        int i = 0;
+        for (String value : temp) {
+            output[i++] = value;
         }
         return output;
     }
