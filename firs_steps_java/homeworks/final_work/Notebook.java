@@ -13,8 +13,9 @@ public class Notebook {
     private int ramVolume;
     private int ssdVolume;
     private String os;
-    private HashMap<String, String> parameters;
     private int price;
+    private HashMap<String, String> parameters;
+    
 
     public Notebook(HashMap<String, String> parameters) {
         id = idCounter++;
@@ -27,7 +28,6 @@ public class Notebook {
         os = parameters.get("os");
         price = Integer.parseInt(parameters.get("price"));
         this.parameters = parameters;
-
     }
 
     public int getId() {
@@ -106,6 +106,7 @@ public class Notebook {
         this.price = price;
     }
 
+    // проверка на соответствие ноутбука заданным условиям
     public Boolean isSatisfied(HashMap<String, String> requirements) {
         boolean check = false;
         if (!parameters.keySet().equals(requirements.keySet())) {
@@ -123,6 +124,7 @@ public class Notebook {
         return check;
     }
 
+    // получение строки для записи в файл
     public String getDbString() {
         return String.format(
                 "id:%d,brandName:%s,model:%s,cpuName:%s,cpuModel:%s,ramVolume:%d,ssdVolume:%d,os:%s,price:%d",
@@ -131,7 +133,7 @@ public class Notebook {
 
     @Override
     public String toString() {
-        return String.format("ID:%d. %s %s, %s %s, RAM %d, SDD %d, OS %s, цена - %dр.",
+        return String.format("ID:%d. %s %s, %s %s, RAM %d Gb, SDD %d Gb, OS %s, цена - %dр.",
                 id, brandName, model, cpuName, cpuModel, ramVolume, ssdVolume, os, price);
     }
 

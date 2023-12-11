@@ -1,4 +1,7 @@
 import java.util.HashMap;
+import java.util.Map;
+
+import javax.swing.RowFilter.Entry;
 
 public class Request {
     private HashMap<String, String> request;
@@ -18,6 +21,12 @@ public class Request {
 
     public void add(String key, String value){
         request.put(key, value);
+    }
+
+    public HashMap<String, String> toHashMap()
+    {
+        HashMap<String,String> output = request;
+        return output;
     }
 
 

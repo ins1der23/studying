@@ -14,6 +14,19 @@ public class Notebooks implements Iterable<Notebook> {
         notebookList.removeAll(notebookList);
     }
 
+    public String[] toStringArray() {
+        String[] output = new String[notebookList.size()];
+        int i = 0;
+        for (Notebook notebook : notebookList) {
+            output[i++] = notebook.toString();
+        }
+        return output;
+    }
+
+    public Notebook getFromList(int index) {
+        return notebookList.get(index - 1);
+    }
+
     public void addPosition(Notebook notebook) {
         if (!notebookList.contains(notebook)) {
             notebookList.add(notebook);
@@ -48,12 +61,13 @@ public class Notebooks implements Iterable<Notebook> {
         notebookList = temp;
     }
 
-    public ArrayList<String> getOptions(String key) {
-        ArrayList<String> result = new ArrayList<>();
+    public String[] getKeys(String key) {
+        String[] output = new String[notebookList.size()];
+        int i = 0;
         for (Notebook notebook : notebookList) {
-            result.add(notebook.getParameters().get(key));
+            output[i++] = (notebook.getParameters().get(key));
         }
-        return result;
+        return output;
     }
 
     @Override
