@@ -1,31 +1,37 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Common {
     static Scanner scanner = new Scanner(System.in);
 
-    public static int getInteger(String invite) {
-        int result = 0;
-        boolean flag = true;
+    //очистка консоли
+    public static void clearConsole()
+    {
         System.out.print("\033[H\033[2J");
+    }
+    
+    // получение int с клавиатуры
+    public static int getInteger(String invite, boolean clear) {
+        int output = 0;
+        boolean flag = true;
         while (flag) {
-            showString(invite + ":", false);
+            showString(invite + ":", clear);
             String temp = scanner.nextLine();
             try {
-                result = Integer.parseInt(temp);
+                output = Integer.parseInt(temp);
                 flag = false;
             } catch (Exception e) {
                 System.out.println(Messages.inputError);
             }
         }
-        return result;
+        return output;
     }
 
-    public static int getInteger(String invite, int min, int max) {
+    // получение int с клавиатуры в заданном диапазоне
+    public static int getInteger(String invite, int min, int max, boolean clear) {
         int output = 0;
         boolean flag = true;
         do {
-            System.out.println(invite + ":");
+            showString(invite + ":", clear);
             String temp = scanner.nextLine();
             try {
                 output = Integer.parseInt(temp);
@@ -37,36 +43,42 @@ public class Common {
         return output;
     }
 
-    public static String getString(String invite) {
-        showString(invite, true);
+    // проверка возможности парсинга String в Int
+    public static boolean tryParseInt(String someString) {
+        try {
+            Integer.parseInt(someString);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    // получение String с клавиатуры
+    public static String getString(String invite, boolean clear) {
+        showString(invite, clear);
         String output = scanner.nextLine();
         return output;
     }
+
+    // пауза
     public static void pressEnter(String invite) {
         showString(invite, false);
         scanner.nextLine();
         return;
     }
 
+    // показ String с возможностью очитски консоли
     public static void showString(String someString, boolean clear) {
         if (clear) {
-            System.out.print("\033[H\033[2J");
+            clearConsole();
         }
         System.out.println(someString);
     }
 
-    public static void showStringList(ArrayList<String> options) {
-        System.out.print("\033[H\033[2J");
-        int i = 1;
-        for (String option : options) {
-            System.out.println(i + "." + option);
-            i++;
-        }
-    }
-
-    public static void showMenu(String name, String[] options, boolean clear) {
+    // оформление меню
+    private static void showMenu(String name, String[] options, boolean clear) {
         if (clear) {
-            System.out.print("\033[H\033[2J");
+            clearConsole();
         }
         System.out.println(name + "\n");
         int i = 1;
@@ -77,9 +89,10 @@ public class Common {
         System.out.println();
     }
 
+    // возврат int выбора пунтка меню
     public static int getChoiceFromMenu(String name, String[] options, String invite, boolean clear) {
         showMenu(name, options, clear);
-        return getInteger(invite, 1, options.length);
+        return getInteger(invite, 1, options.length, false);
     }
 
 }

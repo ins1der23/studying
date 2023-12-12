@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class Notebook {
 
@@ -14,20 +14,21 @@ public class Notebook {
     private int ssdVolume;
     private String os;
     private int price;
-    private HashMap<String, String> parameters;
-    
+    private LinkedHashMap<String, String> parameters;
 
-    public Notebook(HashMap<String, String> parameters) {
+    public Notebook(Request request) {
+        var incoming = request.toLinkedHashMap();
         id = idCounter++;
-        brandName = parameters.get("brandName");
-        model = parameters.get("model");
-        cpuName = parameters.get("cpuName");
-        cpuModel = parameters.get("cpuModel");
-        ramVolume = Integer.parseInt(parameters.get("ramVolume"));
-        ssdVolume = Integer.parseInt(parameters.get("ssdVolume"));
-        os = parameters.get("os");
-        price = Integer.parseInt(parameters.get("price"));
-        this.parameters = parameters;
+        brandName = incoming.get("brandName");
+        model = incoming.get("model");
+        cpuName = incoming.get("cpuName");
+        cpuModel = incoming.get("cpuModel");
+        ramVolume = Integer.parseInt(incoming.get("ramVolume"));
+        ssdVolume = Integer.parseInt(incoming.get("ssdVolume"));
+        os = incoming.get("os");
+        price = Integer.parseInt(incoming.get("price"));
+        parameters = incoming;
+        parameters.put("id", new String() + id);
     }
 
     public int getId() {
@@ -62,7 +63,7 @@ public class Notebook {
         return os;
     }
 
-    public HashMap<String, String> getParameters() {
+    public LinkedHashMap<String, String> getParameters() {
         return parameters;
     }
 
@@ -107,19 +108,27 @@ public class Notebook {
     }
 
     // проверка на соответствие ноутбука заданным условиям
-    public Boolean isSatisfied(HashMap<String, String> requirements) {
+    public Boolean isSatisfied(Request request) {
+        var requirements = request.toLinkedHashMap();
         boolean check = false;
         if (!parameters.keySet().equals(requirements.keySet())) {
             System.out.println(Messages.parametersError);
-            return check;
+            return false;
         }
-        for (String key : parameters.keySet()) {
-            if (parameters.get(key).equals(requirements.get(key)) ||
-                    Integer.parseInt(parameters.get(key)) != 0 &&
-                            Integer.parseInt(requirements.get(key)) >= Integer.parseInt(parameters.get(key))) {
+        for (String key : requirements.keySet()) {
+            int left;
+            int right;
+            if (parameters.get(key).toLowerCase().equals(requirements.get(key).toLowerCase())
+                    || requirements.get(key).equals(new String())) {
                 check = true;
-            } else
-                check = false;
+            } else if (Common.tryParseInt(requirements.get(key))
+                    && Common.tryParseInt(parameters.get(key))) {
+                left = Integer.parseInt(requirements.get(key));
+                right = Integer.parseInt(parameters.get(key));
+                check = left <= right;
+            } else {
+                return false;
+            }
         }
         return check;
     }

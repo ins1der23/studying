@@ -41,8 +41,9 @@ public class Notebooks implements Iterable<Notebook> {
             System.out.println(Messages.existError);
     }
 
-    public void getPositionsFromSet(HashSet<HashMap<String, String>> parametersSet) {
-        for (HashMap<String, String> parameters : parametersSet) {
+    // заполнение списка ноутбуками из HashSet
+    public void getPositionsFromSet(HashSet<Request> parametersSet) {
+        for (Request parameters : parametersSet) {
             Notebook notebook = new Notebook(parameters);
             if (!notebookList.contains(notebook)) {
                 notebookList.add(notebook);
@@ -51,15 +52,16 @@ public class Notebooks implements Iterable<Notebook> {
         }
     }
 
-    public void requestPositions(HashMap<String, String> requirements) {
-        ArrayList<Notebook> temp = new ArrayList<>();
+    public Notebooks requestPositions(Request request) {
+        Notebooks output = new Notebooks();
         for (Notebook notebook : notebookList) {
-            if (notebook.isSatisfied(requirements)) {
-                temp.add(notebook);
+            if (notebook.isSatisfied(request)) {
+                output.addPosition(notebook);
             }
         }
-        notebookList = temp;
+        return output;
     }
+
     // поучение значений полей ноутбуков в списке по ключу
     public String[] getFields(String key) {
         HashSet<String> temp = new HashSet<>();

@@ -5,10 +5,11 @@ import java.util.Map;
 
 
 public class Request {
-    private HashMap<String, String> request;
+    private LinkedHashMap<String, String> request;
 
     public Request() {
         request = new LinkedHashMap<>();
+        request.put("id", "0");
         request.put("brandName", new String());
         request.put("model", new String());
         request.put("cpuName", new String());
@@ -23,8 +24,8 @@ public class Request {
         request.put(key, value);
     }
 
-    public HashMap<String, String> toHashMap() {
-        HashMap<String, String> output = request;
+    public LinkedHashMap<String, String> toLinkedHashMap() {
+        LinkedHashMap<String, String> output = request;
         return output;
     }
 
