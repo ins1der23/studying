@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
+import java.util.Objects;
 
 public class Notebook {
 
@@ -17,7 +18,7 @@ public class Notebook {
     private LinkedHashMap<String, String> parameters;
 
     public Notebook(Request request) {
-        var incoming = request.toLinkedHashMap();
+        var incoming = request.getParameters();
         id = idCounter++;
         brandName = incoming.get("brandName");
         model = incoming.get("model");
@@ -109,23 +110,23 @@ public class Notebook {
 
     // проверка на соответствие ноутбука заданным условиям
     public Boolean isSatisfied(Request request) {
-        var requirements = request.toLinkedHashMap();
+        var requirements = request.getParameters();
         boolean check = false;
         if (!parameters.keySet().equals(requirements.keySet())) {
             System.out.println(Messages.parametersError);
             return false;
         }
         for (String key : requirements.keySet()) {
-            int left;
-            int right;
+            int requestValue;
+            int paramsValue;
             if (parameters.get(key).toLowerCase().equals(requirements.get(key).toLowerCase())
                     || requirements.get(key).equals(new String())) {
                 check = true;
             } else if (Common.tryParseInt(requirements.get(key))
                     && Common.tryParseInt(parameters.get(key))) {
-                left = Integer.parseInt(requirements.get(key));
-                right = Integer.parseInt(parameters.get(key));
-                check = left <= right;
+                requestValue = Integer.parseInt(requirements.get(key));
+                paramsValue = Integer.parseInt(parameters.get(key));
+                check = requestValue <= paramsValue;
             } else {
                 return false;
             }
@@ -146,4 +147,26 @@ public class Notebook {
                 id, brandName, model, cpuName, cpuModel, ramVolume, ssdVolume, os, price);
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Notebook notebook = (Notebook) obj;
+        return brandName.equals(notebook.brandName) &&
+                model.equals(notebook.model) &&
+                cpuName.equals(notebook.cpuName) &&
+                cpuModel.equals(notebook.cpuModel) &&
+                ramVolume == notebook.ssdVolume &&
+                ssdVolume == notebook.ssdVolume &&
+                os.equals(notebook.os);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, brandName, model, cpuName, cpuModel, ramVolume, ssdVolume, os, price, parameters);
+    }
 }

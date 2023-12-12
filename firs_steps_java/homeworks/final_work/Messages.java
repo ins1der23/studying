@@ -2,13 +2,15 @@ public class Messages {
 
         public static String mainMenu = "ГЛАВНОЕ МЕНЮ";
         public static String[] mainMenuOptions = new String[] { "Посмотреть все ноутбуки",
-                                                                "Найти ноутбук",
-                                                                "Добавить ноутбук",
-                                                                "Сохранить изменения",
-                                                                "Выйти",
-                                                                "Тест" };
+                        "Найти ноутбук",
+                        "Добавить ноутбук",
+                        "Сохранить изменения",
+                        "Выйти"
+        };
 
         public static String chooseOption = "Выберете вариант из предложенных";
+        public static String chooseOptionOrZero = "Выберете вариант из предложенных или оставьте поле пустым для выбора всех";
+
         public static String pressEnter = "Нажмите ENTER для продолжения";
 
         public static String[] notebookMenu = new String[] { "Удалить ноутбук",
@@ -29,14 +31,12 @@ public class Messages {
         public static String inputPrice = "Введите цену";
 
         public static String orBlankField = " или оставьте поле пустым для выбора всех";
-        public static String orZero = " (необходимый минимум) или 0";
+        public static String orZero = " (необходимый минимум) или оставьте поле пустым для выбора всех";
         public static String requestParameters = "Парметры запроса для поиска";
 
         public static String addNotebook = " Добавить ноутбук?";
         public static String[] yesOrNo = new String[] { "Да", "Нет" };
 
-         public static String changesSaved = "Изменения сохранены";
-
-
+        public static String changesSaved = "Изменения сохранены";
 
 }

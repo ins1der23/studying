@@ -4,11 +4,11 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashSet;
-import java.util.LinkedHashMap;
 
 public class FileWork {
     private static File dbFile = new File("notebooks.txt");
 
+    // чтение базы из файлы и формирование HashSet<Request> для работы
     public static HashSet<Request> readDbFromFile() {
 
         var result = new HashSet<Request>();
@@ -22,7 +22,7 @@ public class FileWork {
                 for (String string : temp) {
                     key = string.split(":")[0];
                     value = string.split(":")[1];
-                    position.add(key, value);
+                    position.put(key, value);
                 }
                 result.add(position);
             }
@@ -31,7 +31,8 @@ public class FileWork {
         }
         return result;
     }
-
+    
+    // запись базы данных в файл
     public static void writeDbToFile(Notebooks notebooks) {
         String line;
         StringBuilder sb = new StringBuilder();
@@ -47,5 +48,4 @@ public class FileWork {
             e.printStackTrace();
         }
     }
-
 }

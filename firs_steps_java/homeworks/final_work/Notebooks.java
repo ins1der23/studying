@@ -1,7 +1,7 @@
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Objects;
 
 public class Notebooks implements Iterable<Notebook> {
     private ArrayList<Notebook> notebookList;
@@ -10,10 +10,12 @@ public class Notebooks implements Iterable<Notebook> {
         notebookList = new ArrayList<>();
     }
 
+    // очистить список
     public void clear() {
         notebookList.removeAll(notebookList);
     }
 
+    // преобразование спика ноутбуков в String[]
     public String[] toStringArray() {
         String[] output = new String[notebookList.size()];
         int i = 0;
@@ -23,10 +25,12 @@ public class Notebooks implements Iterable<Notebook> {
         return output;
     }
 
-    public Notebook getFromList(int index) {
+    // возврат позиции из списка
+    public Notebook getPosition(int index) {
         return notebookList.get(index - 1);
     }
 
+    // добавление позиции в список
     public void addPosition(Notebook notebook) {
         if (!notebookList.contains(notebook)) {
             notebookList.add(notebook);
@@ -34,6 +38,7 @@ public class Notebooks implements Iterable<Notebook> {
             System.out.println(Messages.addingError);
     }
 
+    // удаление позиции из списка
     public void deletePosition(Notebook notebook) {
         if (notebookList.contains(notebook)) {
             notebookList.remove(notebook);
@@ -52,6 +57,7 @@ public class Notebooks implements Iterable<Notebook> {
         }
     }
 
+    // отбор и получение списка ноутбуков по заданным параметрам
     public Notebooks requestPositions(Request request) {
         Notebooks output = new Notebooks();
         for (Notebook notebook : notebookList) {
@@ -78,11 +84,29 @@ public class Notebooks implements Iterable<Notebook> {
 
     @Override
     public String toString() {
-        String output = new String();
+        StringBuilder sb = new StringBuilder();
+        int i = 1;
         for (Notebook notebook : notebookList) {
-            output += notebook.toString() + "\n";
+            sb.append(i++).append(". ").append(notebook).append("\n");
         }
-        return output;
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Notebooks notebooks = (Notebooks) obj;
+        return notebookList.equals(notebooks.notebookList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(notebookList);
     }
 
     @Override
@@ -108,5 +132,4 @@ public class Notebooks implements Iterable<Notebook> {
         };
         return iterator;
     }
-
 }
