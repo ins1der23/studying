@@ -1,39 +1,53 @@
-﻿using System.Reflection;
-using System.Collections.Specialized;
-using System.Text;
-using System.Data.Common;
-using System.Runtime.InteropServices;
-using System.Linq;
-using System;
-using MySql.Data.MySqlClient;
-using Connection;
-using Dapper;
-using Models;
+﻿
+Setters.numResetter = true;
+Console.WriteLine(Setters.numResetter);
+Setters.toReset();
+Console.WriteLine(Setters.numResetter);
 
-DBConnection user = DBConnection.Instance("localhost", "oilproject");
-bool connectFlag = false;
-while (!connectFlag)
+Agreement[] someAgreements = new Agreement[10];
+for (int i = 0; i < 10; i++)
 {
-    user = DBConnection.Instance("localhost", "oilproject");
-    await user.ConnectAsync();
-    connectFlag = user.IsConnect;
+    someAgreements[i] = new Agreement();
 }
-user.Close();
+foreach (var item in someAgreements)
+{
+    Console.WriteLine(item.Num);
+}
 
-Locations locations = new Locations();
+static class Setters
+{
+    public static int someInt = 1;
+    public static bool numResetter;
 
-await locations.GetFromSqlAsync(user);
-Console.WriteLine(locations);
+    public static void toReset()
+    {
+        int someInt = 1;
+        if (someInt > 25) numResetter = true;
+    }
 
-Addresses addresses= new Addresses();
-
-await addresses.GetFromSqlAsync(user);
-Console.WriteLine(addresses);
-
-user.Close();
+}
 
 
 
+class Agreement
+{
+    public static DateTime Date { get; set; } = DateTime.Today;
+    public string Num { get; set; }
+    static int nextNum = ResetNum(nextNum);
+
+    public Agreement()
+    {
+        Num = $"{Date.Month} - {Interlocked.Increment(ref nextNum)}";
+    }
+    private static int ResetNum(int id)
+    {
+        int res = id;
+        if (Setters.someInt < 13 && Setters.numResetter) res = 0;
+        else res = 100;
+        return res;
+    }
+
+}
 
 
 

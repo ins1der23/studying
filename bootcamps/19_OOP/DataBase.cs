@@ -8,7 +8,7 @@ class DataBase
         workerTable = new();
     }
 
-    public void AppendWorker(Worker worker)
+    public void AppendWorker(Worker worker) 
     {
         workerTable.Add(worker);
     }

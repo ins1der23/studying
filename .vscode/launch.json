@@ -5,18 +5,27 @@
     "version": "0.2.0",
     "configurations": [
         {
-            // Use IntelliSense to find out which attributes exist for C# debugging
-            // Use hover for the description of the existing attributes
-            // For further information visit https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md
+            "type": "java",
+            "name": "task2",
+            "request": "launch",
+            "mainClass": "firs_steps_java.practice_1.task2",
+            "projectName": "subjects_e9213f0c"
+        },
+        {
+            "type": "java",
+            "name": "program",
+            "request": "launch",
+            "mainClass": "firs_steps_java.lesson_1.program",
+            "projectName": "subjects_e9213f0c"
+        },
+        {
             "name": ".NET Core Launch (console)",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            // If you have changed target frameworks, make sure to update the program path.
             "program": "leetcode/RomanNumbers/bin/Debug/net7.0/RomanNumbers.dll",
             "args": [],
             "cwd": "leetcode/RomanNumbers",
-            // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
             "stopAtEntry": false
         },

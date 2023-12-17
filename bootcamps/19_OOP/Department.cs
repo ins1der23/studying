@@ -1,7 +1,7 @@
 class Department
 {
-    public int id; //{ get; set; }
-    public string title; // { get; set; }
+    public int id { get; set; }
+    public string title { get; set; }
     public Department(int id, string title)
     {
         this.id = id;

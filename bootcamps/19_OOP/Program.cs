@@ -26,3 +26,5 @@ foreach (var item in db.Report())
     Console.WriteLine(item);
 }
 
+string depId = dep1.title;
+Console.WriteLine(depId);
