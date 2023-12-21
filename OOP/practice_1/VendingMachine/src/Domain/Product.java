@@ -40,7 +40,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return String.format("%s, цена - %d, место - %d", this.name, this.price, this.place);
+        return String.format("%s, цена: %dр. место: %d", this.name, this.price, this.place);
     }
 
     @Override

@@ -1,9 +1,7 @@
 package Service;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 import Domain.Place;
@@ -11,24 +9,10 @@ import Domain.Product;
 
 public class Holder {
     private LinkedHashMap<Place, Product> store;
-    public LinkedHashMap<Place, Product> getStore() {
-        return store;
-    }
 
     private int maxPlaces;
-    private LinkedHashMap<Product, Integer> assortment;
 
-    public HashMap<Product, Integer> getAssortment() {
-        assortment.clear();
-        for (Map.Entry<Place, Product> cell : store.entrySet()) {
-            Place place = cell.getKey();
-            if (place.getProductCounter() > 0) {
-                Product product = cell.getValue();
-                assortment.put(product, place.getProductCounter());
-            }
-        }
-        return this.assortment;
-    }
+    private LinkedHashMap<Product, Integer> remains;
 
     public Holder(int maxPlaces, int placeSize) {
         this.maxPlaces = maxPlaces;
@@ -37,7 +21,25 @@ public class Holder {
             Place place = new Place(placeSize);
             store.put(place, null);
         }
-        this.assortment = new LinkedHashMap<>();
+        this.remains = new LinkedHashMap<>();
+    }
+
+    public int getMaxPlaces() {
+        return maxPlaces;
+    }
+
+    public LinkedHashMap<Place, Product> getStore() {
+        return store;
+    }
+
+    public HashMap<Product, Integer> getRemains() {
+        remains.clear();
+        for (Map.Entry<Place, Product> cell : store.entrySet()) {
+            Place place = cell.getKey();
+            Product product = cell.getValue();
+            remains.put(product, place.getProductCounter());
+        }
+        return this.remains;
     }
 
     /**
@@ -76,6 +78,18 @@ public class Holder {
             }
         }
         return result;
+    }
+
+    @Override
+    public String toString() {
+        String output = new String();
+        for (Map.Entry<Place, Product> cell : store.entrySet()) {
+            int amount = cell.getKey().getProductCounter();
+            int placeNum = cell.getKey().getId();
+            String productName = cell.getValue().getName();
+            output += productName + ", " + amount + " шт. место: " + placeNum + "\n";
+        }
+        return output;
     }
 
 }
