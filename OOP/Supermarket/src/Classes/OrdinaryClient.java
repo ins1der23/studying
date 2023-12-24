@@ -1,12 +1,12 @@
 package Classes;
 
 /**
- * 
+ * Класс, описывающий обычного клиента
  */
 public class OrdinaryClient extends Actor {
 
     /**
-     * 
+     * Конструктор принимает в качестве имя клиента
      * @param name
      */
 
@@ -16,42 +16,67 @@ public class OrdinaryClient extends Actor {
 
     // Методы
 
-    public boolean isTakeOrder() {
-        return super.isTakeOrder;
-    }
-
-    public boolean isMakeOrder() {
-        return super.isMakeOrder;
-    }
-
-    public boolean isReturnOrder() {
-        return super.isReturnOrder;
-    }
-
-    public void setReturnOrder(boolean isReturnOrder) {
-        super.isReturnOrder = isReturnOrder;
-    }
-
-    public void setTakeOrder(boolean isTakeOrder) {
-        super.isTakeOrder = isTakeOrder;
-    }
-
-    public void setMakeOrder(boolean isMakeOrder) {
-        super.isMakeOrder = isMakeOrder;
-    }
-
+    /**
+     * Оверрайд геттера name родительского класса
+     */
     @Override
     public String getName() {
         return super.name;
     }
 
-    @Override
+    /**
+     * Геттер isTakeOrder
+     */
+    public boolean isTakeOrder() {
+        return super.isTakeOrder;
+    }
+
+    /**
+     * Геттер isMakeOrder
+     */
+    public boolean isMakeOrder() {
+        return super.isMakeOrder;
+    }
+
+    /**
+     * Геттер isReturnOrder
+     */
+    public boolean isReturnOrder() {
+        return super.isReturnOrder;
+    }
+
+    /**
+     * Сеттер для name
+     */
     public void setName(String name) {
         super.name = name;
     }
 
+    /**
+     * Сеттер isMakeOrder
+     */
+    public void setMakeOrder(boolean isMakeOrder) {
+        super.isMakeOrder = isMakeOrder;
+    }
+
+    /**
+     * Сеттер isTakeOrder
+     */
+    public void setTakeOrder(boolean isTakeOrder) {
+        super.isTakeOrder = isTakeOrder;
+    }
+
+    /**
+     * Сеттер isReturnOrder
+     */
+    public void setReturnOrder(boolean isReturnOrder) {
+        super.isReturnOrder = isReturnOrder;
+    }
+
+    /**
+     * Получение ссылки на самого себя
+     */
     public Actor getActor() {
         return this;
     }
-
 }

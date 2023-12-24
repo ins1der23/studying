@@ -1,50 +1,78 @@
 package Classes;
 
-
+/**
+ * Класс, описывающий налогвого инспектора
+ */
 public class TaxInspector extends Actor {
 
-    private String name;
-    private boolean isTakeOrder;
-    private boolean isMakeOrder;
-
+    /**
+     * Конструткор, автоматически присваивающий имя налоговому инспектору
+     */
     public TaxInspector() {
         this.name = "Tax audit";
     }
 
+    /**
+     * Оверрайд геттера name родительского класса
+     */
+    @Override
     public String getName() {
-        return name;
+        return super.name;
     }
 
+    /**
+     * Геттер isTakeOrder
+     */
     public boolean isTakeOrder() {
-        return isTakeOrder;
+        return super.isTakeOrder;
     }
 
+    /**
+     * Геттер isMakeOrder
+     */
     public boolean isMakeOrder() {
-        return isMakeOrder;
+        return super.isMakeOrder;
     }
 
-    public void setTakeOrder(boolean val) {
-        this.isTakeOrder = val;
-    }
-
-    public void setMakeOrder(boolean val) {
-        this.isMakeOrder = val;
-    }
-
-    public Actor getActor() {
-        return new OrdinaryClient(name);
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
+    /**
+     * Геттер isReturnOrder
+     */
     public boolean isReturnOrder() {
         return super.isReturnOrder;
     }
 
+    /**
+     * Сеттер для name
+     */
+    public void setName(String name) {
+        super.name = name;
+    }
+
+    /**
+     * Сеттер isMakeOrder
+     */
+    public void setMakeOrder(boolean isMakeOrder) {
+        super.isMakeOrder = isMakeOrder;
+    }
+
+    /**
+     * Сеттер isTakeOrder
+     */
+    public void setTakeOrder(boolean isTakeOrder) {
+        super.isTakeOrder = isTakeOrder;
+    }
+
+    /**
+     * Сеттер isReturnOrder
+     */
     public void setReturnOrder(boolean isReturnOrder) {
         super.isReturnOrder = isReturnOrder;
     }
 
+    /**
+     * Получение ссылки на самого себя
+     */
+    public Actor getActor() {
+        return this;
+    }
 }

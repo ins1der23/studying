@@ -9,9 +9,10 @@ import Interfaces.iReturnOrder;
 
 public abstract class Actor implements iActorBehaviour, iReturnOrder {
     protected String name; // имя посетителя
-    protected boolean isTakeOrder; // boolean значение создания заказа посетителем
-    protected boolean isMakeOrder; // boolean значение получения заказа посетителем
-    protected boolean isReturnOrder; // boolean значение возврата заказа посетителем
+    protected boolean isMakeOrder; // boolean значение создания заказа
+    protected boolean isTakeOrder; // boolean значение получения заказа
+    protected boolean isCancelOrder; // boolean значение отмены заказа
+    protected boolean isReturnOrder; // boolean значение возврата заказа
 
     /**
      * Конструктор c парметрами
@@ -21,15 +22,13 @@ public abstract class Actor implements iActorBehaviour, iReturnOrder {
     public Actor(String name) {
         this.name = name;
     }
-    
+
     /**
      * Конструктор без параметров
      */
     public Actor() {
         this.name = new String();
     }
-
-
 
     // Методы
 
@@ -45,6 +44,13 @@ public abstract class Actor implements iActorBehaviour, iReturnOrder {
      */
     public boolean isMakeOrder() {
         return isMakeOrder;
+    }
+
+    /**
+     * получение значения isCancelOrder
+     */
+    public boolean isCancelOrder() {
+        return isCancelOrder;
     }
 
     /**
