@@ -1,18 +1,16 @@
-package Service.Iterators;
+package Domain.Iterators;
 
 import java.util.Iterator;
 import java.util.List;
 
-import Domain.Student;
-
 /**
- * Итератор для students
+ * Итератор для StudentCollection
  */
-public class StudentIterator implements Iterator<Student> {
+public class StudentIterator<N extends Number, T> implements Iterator<T> {
     private int counter;
-    private final List<Student> students;
+    private final List<T> students;
 
-    public StudentIterator(List<Student> students) {
+    public StudentIterator(List<T> students) {
         this.students = students;
         this.counter = 0;
     }
@@ -23,7 +21,7 @@ public class StudentIterator implements Iterator<Student> {
     }
 
     @Override
-    public Student next() {
+    public T next() {
         if (!hasNext()) {
             return null;
         }
