@@ -33,7 +33,7 @@ public class Student<N extends Number> extends Person<N> implements Comparable<S
      */
     @Override
     public String toString() {
-        return "Student: " + name + ", age: " + age + ", id: " + id;
+        return "Студент: " + name + ", Возраст: " + age + ", id: " + id;
     }
 
     /**

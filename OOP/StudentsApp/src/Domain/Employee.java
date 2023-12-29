@@ -10,7 +10,7 @@ public class Employee<N extends Number> extends Person<N> {
      * Конструктор
      * 
      * @param name    имя работника
-     * @param age     возраст работника
+     * @param age     возраст работника, Double
      * @param special специализация работника
      */
     public Employee(String name, N age, String speciality) {
@@ -25,6 +25,11 @@ public class Employee<N extends Number> extends Person<N> {
      */
     public String getSpeciality() {
         return speciality;
+    }
+
+    @Override
+    public String toString() {
+        return "Работник: " + name + ", Возраст: " + age + ", Специальность: " + speciality;
     }
 
 }

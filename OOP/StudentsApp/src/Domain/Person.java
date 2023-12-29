@@ -35,7 +35,7 @@ public abstract class Person<N extends Number> {
 
     @Override
     public String toString() {
-        return "Person [name=" + name + ", age=" + age + "]";
+        return "Имя: " + name +   "Возраст: " + age + "Роль: " + this.getClass().getName();
     }
     
 }

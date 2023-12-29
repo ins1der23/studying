@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import Domain.Iterators.StudentIterator;
+import Domain.Iterators.PersonIterator;
 
 /**
  * Абстрактный класс, описывающий группу студентов, родительский класс для
@@ -72,7 +72,7 @@ public abstract class StudentCollection<N extends Number, T>
      */
     @Override
     public Iterator<T> iterator() {
-        return new StudentIterator<N, T>(group);
+        return new PersonIterator<N, T>(group);
 
     }
 

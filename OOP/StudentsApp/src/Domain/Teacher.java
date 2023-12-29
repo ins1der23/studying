@@ -1,9 +1,9 @@
 package Domain;
 
 /**
- * Класс, описывающий преподоавтеля, age только int
+ * Класс, описывающий преподоавтеля
  */
-public class Teacher extends Person<Integer> {
+public class Teacher<N extends Number> extends Person<N> {
     
     private String acadDegree; // ученая степень преподователя
 
@@ -12,11 +12,11 @@ public class Teacher extends Person<Integer> {
     }
 
     /** Конструктор
-     * @param firstName // String
-     * @param age // только int
-     * @param acadDegree //String
+     * @param firstName 
+     * @param age 
+     * @param acadDegree 
      */
-    public Teacher(String firstName, int age, String acadDegree) {
+    public Teacher(String firstName, N age, String acadDegree) {
         super(firstName, age);
         this.acadDegree = acadDegree;
     }

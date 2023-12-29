@@ -3,34 +3,35 @@ package Service;
 import java.util.List;
 
 import Domain.Teacher;
+import Service.Interfaces.IPersonCreate;
 
-public class TeacherService extends PersonService<Integer, Teacher> {
+public class TeacherService<N extends Number> extends PersonService<N, Teacher<N>> implements IPersonCreate<N> {
 
-    public TeacherService(List<Teacher> persons) {
-        super(persons);
+    public TeacherService(List<Teacher<N>> persons) {
+        super();
+        if (persons != null)
+            super.persons.addAll(persons);
         super.counter = 0;
     }
 
-    public List<Teacher> getSorted() {
+    public List<Teacher<N>> getSorted() {
         sortByName();
         return persons;
     }
 
     @Override
-    public Teacher create(String name, Integer age, String acadDegree) {
-        Teacher teacher = new Teacher(name, age, acadDegree);
+    public void create(String name, N age, String acadDegree) {
+        Teacher<N> teacher = new Teacher<>(name, age, acadDegree);
         super.persons.add(teacher);
         super.counter++;
-        return teacher;
     }
 
     @Override
     public String toString() {
         String output = new String();
-        for (Teacher teacher : persons) {
-            output += teacher.toString() + "\n";
+        for (Teacher<N> item : persons) {
+            output += item.toString() + "\n";
         }
         return output;
     }
-
 }

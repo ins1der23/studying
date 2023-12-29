@@ -1,31 +1,29 @@
 package Service;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import Domain.Person;
 import Domain.Iterators.PersonComparator;
+import Domain.Iterators.PersonIterator;
 import Service.Interfaces.IPersonService;
 
 /**
- * Абстрактный родительский класс для сервисов ролей (EmployeeService,
+ * Родительский класс для сервисов ролей (EmployeeService,
  * StudentService, TeacherService)
  */
-public abstract class PersonService<N extends Number, T extends Person<N>>
-        implements IPersonService<N, T> {
+public class PersonService<N extends Number, T extends Person<N>> implements IPersonService<T>, Iterable<T> {
 
     protected int counter; // счетчик для списка экземпляров Person
     protected List<T> persons; // список экземпляров наследников класса Person
 
     /**
-     * Конструктор
+     * Конструктор без параметров
      * 
-     * @param persons список экземпляров наследников класса Person
      */
-    public PersonService(List<T> persons) {
-        this.persons = new ArrayList<T>();
-        if (persons != null)
-            this.persons.addAll(persons);
+    public PersonService() {
+        this.persons = new ArrayList<>();
     }
 
     /**
@@ -36,24 +34,47 @@ public abstract class PersonService<N extends Number, T extends Person<N>>
     }
 
     /**
-     * Метод сортиhовки по списка по имени
-     */
-    public void sortByName() {
-        PersonComparator<N, Person<N>> comparator = new PersonComparator<>();
-        persons.sort(comparator);
-    }
-
-    /**
-     * Получения списка экземпляров наследников класса Person
+     * Получение списка экземпляров наследников класса Person
      */
     public List<T> getAll() {
         return persons;
     }
 
     /**
-     * Создать экземпляр наследника класса Person
+     * Метод сортировки по списка по имени
      */
-    public abstract T create(String name, N age, String param);
-    
+    public void sortByName() {
+        PersonComparator<N, T> comparator = new PersonComparator<>();
+        persons.sort(comparator);
+    }
+
+    /**
+     * Добавление элемента в список экземпляров наследников класса Person
+     */
+    public void addPerson(T person) {
+        persons.add(person);
+        counter++;
+    }
+
+    /**
+     * Получение элемента списка экземпляров наследников класса Person
+     */
+    public T getAt(int position) {
+        return persons.get(position - 1);
+    }
+
+    @Override
+    public String toString() {
+        String output = new String();
+        for (T item : persons) {
+            output += item.toString() + "\n";
+        }
+        return output;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new PersonIterator<N, T>(persons);
+    }
 
 }

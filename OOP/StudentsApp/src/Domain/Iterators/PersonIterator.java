@@ -6,18 +6,18 @@ import java.util.List;
 /**
  * Итератор для StudentCollection
  */
-public class StudentIterator<N extends Number, T> implements Iterator<T> {
+public class PersonIterator<N extends Number, T> implements Iterator<T> {
     private int counter;
-    private final List<T> students;
+    private final List<T> persons;
 
-    public StudentIterator(List<T> students) {
-        this.students = students;
+    public PersonIterator(List<T> persons) {
+        this.persons = persons;
         this.counter = 0;
     }
 
     @Override
     public boolean hasNext() {
-        return counter < students.size();
+        return counter < persons.size();
     }
 
     @Override
@@ -25,7 +25,7 @@ public class StudentIterator<N extends Number, T> implements Iterator<T> {
         if (!hasNext()) {
             return null;
         }
-        return students.get(counter++);
+        return persons.get(counter++);
     }
 
 }
