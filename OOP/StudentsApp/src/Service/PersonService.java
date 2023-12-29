@@ -63,6 +63,10 @@ public class PersonService<N extends Number, T extends Person<N>> implements IPe
         return persons.get(position - 1);
     }
 
+
+    /**
+     * Переопределиние toString
+     */
     @Override
     public String toString() {
         String output = new String();
@@ -72,6 +76,9 @@ public class PersonService<N extends Number, T extends Person<N>> implements IPe
         return output;
     }
 
+    /**
+     * Итератор для Person
+     */
     @Override
     public Iterator<T> iterator() {
         return new PersonIterator<N, T>(persons);

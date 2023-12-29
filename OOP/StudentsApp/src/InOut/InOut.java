@@ -10,10 +10,10 @@ public class InOut {
     public static void showString(String message) {
         System.out.println(message);
     }
-    public static void showSeparator(){
+
+    public static void showSeparator() {
         System.out.println("=============================================");
     }
-    
 
     // очистка консоли
     public static void clearConsole() {
@@ -26,4 +26,14 @@ public class InOut {
         scanner.nextLine();
         return;
     }
+
+    // приведение к double
+    public static Double toDouble(Number num) {
+        if (num instanceof Integer)
+            return (double) num.intValue();
+        if (num instanceof Float)
+            return (double) num.doubleValue();
+        return (double) num;
+    }
+
 }

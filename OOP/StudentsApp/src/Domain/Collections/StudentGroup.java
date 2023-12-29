@@ -1,6 +1,8 @@
-package Domain;
+package Domain.Collections;
 
 import java.util.List;
+
+import Domain.Student;
 
 public class StudentGroup<N extends Number> extends StudentCollection<N, Student<N>> {
 

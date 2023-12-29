@@ -1,5 +1,7 @@
 package Domain;
 
+import InOut.InOut;
+
 /**
  * Класс, описывающий студентов
  */
@@ -45,7 +47,7 @@ public class Student<N extends Number> extends Person<N> implements Comparable<S
      */
     @Override
     public int compareTo(Student<N> o) {
-        if (super.getAge() == o.getAge()) {
+        if (InOut.toDouble(super.getAge()) == InOut.toDouble(o.getAge())) {
             if (id == o.id)
                 return 0;
             if (id > o.id)
@@ -53,7 +55,7 @@ public class Student<N extends Number> extends Person<N> implements Comparable<S
             else
                 return -1;
         }
-        if ((Double) super.getAge() > (Double) o.getAge())
+        if (InOut.toDouble(super.getAge()) > InOut.toDouble(o.getAge()))
             return 1;
         else
             return -1;

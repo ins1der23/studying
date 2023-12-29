@@ -19,7 +19,7 @@ public class Employee<N extends Number> extends Person<N> {
     }
 
     /**
-     * Геттер special
+     * Геттер speciality
      * 
      * @return String значение speciality
      */
@@ -27,6 +27,9 @@ public class Employee<N extends Number> extends Person<N> {
         return speciality;
     }
 
+    /**
+     * Переопределение метода toString()
+     */
     @Override
     public String toString() {
         return "Работник: " + name + ", Возраст: " + age + ", Специальность: " + speciality;

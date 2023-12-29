@@ -5,6 +5,9 @@ import java.util.List;
 import Domain.Teacher;
 import Service.Interfaces.IPersonCreate;
 
+/**
+ * класс для сервисов Teacher
+ */
 public class TeacherService<N extends Number> extends PersonService<N, Teacher<N>> implements IPersonCreate<N> {
 
     public TeacherService(List<Teacher<N>> persons) {
@@ -19,6 +22,9 @@ public class TeacherService<N extends Number> extends PersonService<N, Teacher<N
         return persons;
     }
 
+    /**
+     * Переопределение create для создания и добавления в список, age принмает любой числовой тип
+     */
     @Override
     public void create(String name, N age, String acadDegree) {
         Teacher<N> teacher = new Teacher<>(name, age, acadDegree);
@@ -26,12 +32,4 @@ public class TeacherService<N extends Number> extends PersonService<N, Teacher<N
         super.counter++;
     }
 
-    @Override
-    public String toString() {
-        String output = new String();
-        for (Teacher<N> item : persons) {
-            output += item.toString() + "\n";
-        }
-        return output;
-    }
 }

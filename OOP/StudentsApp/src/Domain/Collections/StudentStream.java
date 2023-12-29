@@ -1,6 +1,8 @@
-package Domain;
+package Domain.Collections;
 
 import java.util.List;
+
+import Domain.Student;
 
 /**
  * Класс, описывающий поток судентов, состоящий из групп

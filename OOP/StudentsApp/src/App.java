@@ -1,13 +1,12 @@
 import java.util.ArrayList;
 
-
 import Controller.AccountController;
 import Domain.Employee;
 import Domain.Person;
 import Domain.Student;
-import Domain.StudentGroup;
-import Domain.StudentStream;
 import Domain.Teacher;
+import Domain.Collections.StudentGroup;
+import Domain.Collections.StudentStream;
 import Service.EmployeeService;
 import Service.PersonService;
 import Service.StudentService;
@@ -81,7 +80,6 @@ public class App {
         }
         InOut.showString(persons.toString());
         InOut.showSeparator();
-        InOut.pressEnter();
 
         InOut.showString("Считаем средний возраст...");
         InOut.pressEnter();
@@ -112,7 +110,7 @@ public class App {
         listStud.add(s10);
         listStud.add(s8);
 
-        // StudentGroup<Number> group4580 = new StudentGroup<>(listStud, 4580);
+        StudentGroup<Number> group4580 = new StudentGroup<>(listStud, 4580);
         StudentGroup<Number> group2210 = new StudentGroup<>(null, 2210);
         group2210.add(s7);
         group2210.add(s5);
@@ -125,9 +123,12 @@ public class App {
         group5281.add(s12);
         group5281.add(s4);
         StudentStream<Number> stream555 = new StudentStream<>(null, 555);
-        // stream555.add(group4580);
+        stream555.add(group4580);
         stream555.add(group5281);
         stream555.add(group2210);
         System.out.println(stream555);
+        InOut.showString("СПАСИБО! ДО НОВЫХ ВСТРЕЧ!");
+        InOut.showSeparator();
+        InOut.pressEnter();
     }
 }
