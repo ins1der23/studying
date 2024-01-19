@@ -1,10 +1,10 @@
 package Domain;
 
 public class Car {
-    
-    private iEngine engine;
 
-    public Car(iEngine engine) {
+    private iStartEngine engine;
+
+    public Car(iStartEngine engine) {
         this.engine = engine;
     }
 

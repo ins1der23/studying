@@ -1,5 +1,5 @@
 package Domain;
 
-public interface iEngine {
+public interface iStartEngine {
     void start();
 }
