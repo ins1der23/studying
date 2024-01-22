@@ -1,22 +1,43 @@
-using System.Linq.Expressions;
 using Domain;
 
+/// <summary>
+/// Класс для выбора парсера  в зависмости от введенного выражения
+/// </summary>
 class ParserSelecter
 {
-    INumParser<RealNum> realNumParser;
-    INumParser<ComplexNum> compleNumParser;
-
+    /// <summary>
+    /// Список доступных парсеров
+    /// </summary>
+    readonly List<INumParser<INum>> parsers;
+    /// <summary>
+    /// Конструтктор, заполняет список парсеров
+    /// </summary>
     public ParserSelecter()
     {
-        realNumParser = new RealNumParser();
-        compleNumParser = new ComplexNumParser();
+        parsers = new()
+        {
+            new RealNumParser(),
+            new ComplexNumParser()
+        };
     }
-
+    /// <summary>
+    /// Парсинг в число введенных данных с проверкой
+    /// </summary>
+    /// <param name="input">Строка с введенными данными</param>
+    /// <returns>Числовой класс/null</returns>
     public INum GetNum(string input)
     {
+        RealNumParser realNumParser = new();
+        ComplexNumParser complexNumParser = new();
+        if (complexNumParser.IsValid(input)) return complexNumParser.ToNum(input);
         if (realNumParser.IsValid(input)) return realNumParser.ToNum(input);
-        else if (compleNumParser.IsValid(input)) return compleNumParser.ToNum(input);
-        else return null!;
+
+
+        // foreach (var parser in parsers)
+        // {
+        //     if (parser.IsValid(input)) return parser.ToNum(input);
+        // }
+        return null!;
     }
 
 

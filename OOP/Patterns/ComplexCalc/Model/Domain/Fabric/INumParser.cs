@@ -1,6 +1,6 @@
 namespace Domain;
-public interface INumParser<T> where T : INum
+interface INumParser<INum> 
 {
     bool IsValid(string num);
-    T ToNum(string checkedInput);
+    INum ToNum(string checkedInput);
 }

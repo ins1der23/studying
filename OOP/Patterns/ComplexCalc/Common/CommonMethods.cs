@@ -1,4 +1,4 @@
-public abstract class CommonMethods
+abstract class CommonMethods
 {
 
     public static bool IsNumeric(string input)

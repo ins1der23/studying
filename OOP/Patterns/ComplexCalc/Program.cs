@@ -1,5 +1,5 @@
-﻿View view = new(new TextRus());
-Controller controller = new(view);
+﻿
+Controller controller = new(new View(), new TextRus());
 
 controller.Run();
 

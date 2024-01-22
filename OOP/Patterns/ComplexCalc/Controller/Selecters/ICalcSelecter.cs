@@ -1,0 +1,4 @@
+interface ICalcSelecter
+{
+    INum Calculate();
+}

@@ -1,6 +1,4 @@
-using System.Runtime.CompilerServices;
 using System.Numerics;
-using System.Dynamic;
 
 class ComplexNum : INum
 {

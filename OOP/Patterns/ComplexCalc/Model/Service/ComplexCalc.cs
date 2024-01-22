@@ -1,12 +1,13 @@
 using System.Numerics;
-
+/// <summary>
+/// Класс калькулятор для операций с комплесными числами
+/// </summary>
 class ComplexCalc : ICalc
 {
-
     public ComplexCalc()
     {
     }
-    
+
     public INum Calculate(INum first, string operation, INum second)
     {
         bool isPossible = true;

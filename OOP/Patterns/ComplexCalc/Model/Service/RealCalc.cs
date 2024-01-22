@@ -1,11 +1,10 @@
+/// <summary>
+/// /// Класс калькулятор для операций только с вещественными числами
+/// </summary>
 class RealCalc : ICalc
 {
-
-   
-
     public RealCalc()
     {
-        
     }
 
     public INum Calculate(INum first, string operation, INum second)

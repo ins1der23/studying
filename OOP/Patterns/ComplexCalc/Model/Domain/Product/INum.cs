@@ -1,4 +1,4 @@
-public interface INum
+ interface INum
 {
      public object GetValue();
 }
