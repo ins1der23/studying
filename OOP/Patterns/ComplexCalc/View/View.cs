@@ -1,17 +1,16 @@
-using System.Numerics;
 
 public class View
 {
-    Text text;
-    // NumParser numParser;
-    public Text Text { get => text; set => text = value; }
+    TextRus text;
 
-    public View(Text text)
+    public TextRus Text { get => text; set => text = value; }
+
+    public View(TextRus text)
     {
         this.text = text;
-        // numParser = new();
+
     }
-    
+
 
     public static string GetString(string text, bool clear = true)
     {
@@ -27,7 +26,9 @@ public class View
         Console.WriteLine(text);
     }
 
-   
+
+
+
 
 
 }
