@@ -1,7 +1,17 @@
 ﻿
-Controller controller = new(new View(), new TextRus());
+Controller controller = new(new View(), new UiTextRus());
 
 controller.Run();
+
+
+
+
+
+
+
+
+
+
 
 
 

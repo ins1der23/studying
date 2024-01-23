@@ -1,23 +1,35 @@
 class Logger
 {
-    LoggerText text;
+
+    private readonly FileInfo fileInfo;
+    private readonly string path;
+    private DateTime Time => DateTime.Now;
     StreamWriter sw;
 
-    public LoggerText Text { get => text; set => text = value; }
-    public Logger()
+
+
+    public Logger(string path)
     {
-        text = new();
-        // sw = new("log.txt");
+        fileInfo = new FileInfo(path);
+        this.path = path;
+        sw = new(path, false);
+        sw.Close();
     }
 
+    public void Write(string message, string data = "")
+    {
+        if (fileInfo.Exists)
+        {
+            if(!data.Equals(string.Empty)) data = $": {data}";
+            sw = new(path, true);
+            string line = $"{Time} {message}{data}";
+            sw.WriteLine(line);
+            sw.Close();
+        }
 
-
+    }
     public void Alert(string message, string data = "")
     {
         Console.WriteLine($"{message} {data}");
     }
-
-
-
-
 }

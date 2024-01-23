@@ -1,4 +1,4 @@
-class Text
+class UiText
 {
     protected string inputNum;
     protected string start;
@@ -7,6 +7,7 @@ class Text
     protected string second;
     protected string pressEnter;
     protected string inputError;
+    protected string zeroError;
 
 
 
@@ -18,8 +19,11 @@ class Text
     public string Second => second;
     public string InputError => inputError;
     public string PressEnter => pressEnter;
+    public string ZeroError => zeroError;
 
-    public Text()
+
+
+    public UiText()
     {
         inputNum = string.Empty;
         start = string.Empty;
@@ -28,6 +32,7 @@ class Text
         second = string.Empty;
         pressEnter = string.Empty;
         inputError = string.Empty;
+        zeroError = string.Empty;
     }
 
 }

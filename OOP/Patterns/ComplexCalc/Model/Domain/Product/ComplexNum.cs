@@ -11,17 +11,11 @@ class ComplexNum : INum
         this.value = value;
     }
 
-
     public override string ToString()
     {
         char module = '+';
         if (Math.Abs(Value.Imaginary) != Value.Imaginary) module = '-';
-        return $"{Value.Real}{module}{Math.Abs(Value.Imaginary)}i";
-    }
-
-    public double[] ValueAsArray()
-    {
-        throw new NotImplementedException();
+        return $"{Math.Round(Value.Real, 2)}{module}{Math.Round(Math.Abs(Value.Imaginary), 2)}i";
     }
 
     public object GetValue() => value;

@@ -9,6 +9,7 @@ class RealNumParser : INumParser<INum>
 
     public  INum ToNum(string checkedInput)
     {
+        checkedInput = checkedInput.Replace('.', ',');
         _ = double.TryParse(checkedInput, out double num);
         return new RealNum(num);
     }

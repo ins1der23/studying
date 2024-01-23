@@ -1,4 +1,4 @@
-using static CommonMethods;
+
 class View : IView
 {
 
@@ -27,36 +27,30 @@ class View : IView
         Console.ReadLine();
     }
 
-    public string GetNumeric(string message, string inputNum, string inputError,bool clear = true)
-    {
+    // public string GetNumeric(string message, string inputNum, string inputError,bool clear = true)
+    // {
 
-        ShowString(message, clear);
-        string output = string.Empty;
-        bool flag = true;
-        while (flag)
-        {
-            output = GetString(inputNum, clear: false);
-            if (IsNumeric(output)) flag = false;
-            else ShowString(inputError);
-        }
-        return output;
-    }
-    public string GetOperation(string message, string inputError, bool clear = true)
-    {
-        string output = string.Empty;
-        bool flag = true;
-        while (flag)
-        {
-            output = GetString(message);
-            if (IsOperation(output)) flag = false;
-            else ShowString(inputError, clear);
-        }
-        return output;
-    }
-
-
-
-
-
-
+    //     ShowString(message, clear);
+    //     string output = string.Empty;
+    //     bool flag = true;
+    //     while (flag)
+    //     {
+    //         output = GetString(inputNum, clear: false);
+    //         if (IsNumeric(output)) flag = false;
+    //         else ShowString(inputError);
+    //     }
+    //     return output;
+    // }
+    // public string GetOperation(string message, string inputError, bool clear = true)
+    // {
+    //     string output = string.Empty;
+    //     bool flag = true;
+    //     while (flag)
+    //     {
+    //         output = GetString(message);
+    //         if (IsOperation(output)) flag = false;
+    //         else ShowString(inputError, clear);
+    //     }
+    //     return output;
+    // }
 }

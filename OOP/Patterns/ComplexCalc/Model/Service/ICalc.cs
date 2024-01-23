@@ -10,5 +10,6 @@ interface ICalc
     /// <param name="operation">Оператор</param>
     /// <param name="second">Второе число типа INum</param>
     /// <returns></returns>
-   INum Calculate(INum first, string operation, INum second);
+    INum Calculate(INum first, string operation, INum second);
+    object Convert(INum number);
 }
