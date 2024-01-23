@@ -61,17 +61,8 @@ class Controller
                     string toCalc = $"{firstInput} {operation} {secondInput}";
                     view.ShowString(toCalc);
                     view.PressEnter(text.PressEnter, false);
-
                     INum firstNum = parser.GetNum(firstInput);
-                    //
-                    Console.WriteLine(firstNum);
-                    Console.WriteLine(firstNum is ComplexNum);
-                    //
                     INum secondNum = parser.GetNum(secondInput);
-                    //
-                    Console.WriteLine(secondNum);
-                    Console.WriteLine(secondNum is ComplexNum);
-                    //
                     calc = new CalcDecorator(new CalcSelecter(firstNum, operation, secondNum), logger);
                     INum result = calc.Calculate();
                     if (result == null) view.ShowString(text.ZeroError);
