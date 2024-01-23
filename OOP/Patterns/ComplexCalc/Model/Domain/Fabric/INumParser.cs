@@ -1,6 +1,19 @@
-namespace Domain;
-interface INumParser<INum> 
+/// <summary>
+/// Интерфейс INumParser
+/// </summary>
+/// <typeparam name="INum"></typeparam>
+interface INumParser<INum>
 {
-    bool IsValid(string num);
-    INum ToNum(string checkedInput);
+    /// <summary>
+    /// Проверка возможности преобразования
+    /// </summary>
+    /// <param name="input">Строка ввода числа</param>
+    /// <returns>Результат проверки</returns>
+    bool IsValid(string input);
+    /// <summary>
+    /// Преобразование в INum
+    /// </summary>
+    /// <param name="input">Строка ввода числа</param>
+    /// <returns></returns>
+    INum ToNum(string input);
 }

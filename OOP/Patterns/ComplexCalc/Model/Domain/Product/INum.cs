@@ -1,4 +1,11 @@
- interface INum
+/// <summary>
+/// Интрфейс Inum
+/// </summary>
+interface INum
 {
-     public object GetValue();
+     /// <summary>
+     /// Метод для получения значения INum
+     /// </summary>
+     /// <returns>Значение INum</returns>
+     object GetValue();
 }

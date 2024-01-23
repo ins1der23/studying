@@ -1,4 +1,3 @@
-using Domain;
 
 /// <summary>
 /// Класс для выбора парсера  в зависмости от введенного выражения
@@ -10,7 +9,7 @@ class ParserSelecter
     /// </summary>
     readonly List<INumParser<INum>> parsers;
     /// <summary>
-    /// Конструтктор, заполняет список парсеров
+    /// Конструктор, заполняет список парсеров
     /// </summary>
     public ParserSelecter()
     {
@@ -24,19 +23,13 @@ class ParserSelecter
     /// Парсинг в число введенных данных с проверкой
     /// </summary>
     /// <param name="input">Строка с введенными данными</param>
-    /// <returns>Числовой класс/null</returns>
+    /// <returns>INum или null в случае неуспеха</returns>
     public INum GetNum(string input)
     {
-        RealNumParser realNumParser = new();
-        ComplexNumParser complexNumParser = new();
-        if (complexNumParser.IsValid(input)) return complexNumParser.ToNum(input);
-        if (realNumParser.IsValid(input)) return realNumParser.ToNum(input);
-
-
-        // foreach (var parser in parsers)
-        // {
-        //     if (parser.IsValid(input)) return parser.ToNum(input);
-        // }
+        foreach (var parser in parsers)
+        {
+            if (parser.IsValid(input)) return parser.ToNum(input);
+        }
         return null!;
     }
 

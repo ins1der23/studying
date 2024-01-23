@@ -1,4 +1,7 @@
-class UiText
+/// <summary>
+/// Абстрактный класс для сообщений UI
+/// </summary>
+abstract class UiText
 {
     protected string inputNum;
     protected string start;
@@ -9,9 +12,6 @@ class UiText
     protected string inputError;
     protected string zeroError;
 
-
-
-
     public string InputNum => inputNum;
     public string Start => start;
     public string First => first;
@@ -21,8 +21,9 @@ class UiText
     public string PressEnter => pressEnter;
     public string ZeroError => zeroError;
 
-
-
+    /// <summary>
+    /// Базовый конструктор
+    /// </summary>
     public UiText()
     {
         inputNum = string.Empty;

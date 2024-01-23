@@ -1,13 +1,9 @@
 using System.Numerics;
 /// <summary>
-/// Класс калькулятор для операций с комплесными числами
+/// Класс калькулятор для операций с комплексными числами
 /// </summary>
 class ComplexCalc : ICalc
 {
-    public ComplexCalc()
-    {
-    }
-
     public INum Calculate(INum first, string operation, INum second)
     {
         Complex fComplex = (Complex)Convert(first);
@@ -23,6 +19,11 @@ class ComplexCalc : ICalc
         return result;
     }
 
+    /// <summary>
+    /// Конвертация INum в Complex 
+    /// </summary>
+    /// <param name="number">Входящее INum</param>
+    /// <returns>Complex число</returns>
     public object Convert(INum number)
     {
         if (number.GetValue() is double v)

@@ -1,22 +1,17 @@
 
 using System.Numerics;
-using Domain;
 
+/// <summary>
+/// Класс для парсинга строки в ComplexNum
+/// </summary>
 class ComplexNumParser : INumParser<INum>
 
 {
     /// <summary>
-    /// Пустой конструктор
-    /// </summary>
-    public ComplexNumParser()
-    {
-    }
-
-    /// <summary>
-    /// Проверяет, является ли введенная строка комплексным числом
+    /// Проверка возможности преобразование сроки в ComplexNum
     /// </summary>
     /// <param name="input"></param>
-    /// <returns></returns>
+    /// <returns>Результат проверки</returns>
     public bool IsValid(string input)
     {
         if (!input.Contains('i')) return false;
@@ -26,45 +21,53 @@ class ComplexNumParser : INumParser<INum>
     }
 
     /// <summary>
-    /// Конвертирует в INum проверенную строку 
+    /// Конвертирует в ComplexNum проверенную строку 
     /// </summary>
-    /// <param name="checkedInput"></param>
-    /// <returns>ComplexNum</returns>
-    public INum ToNum(string checkedInput)
+    /// <param name="input"></param>
+    /// <returns>ComplexNum или null в случае неудачи</returns>
+    public INum ToNum(string input)
     {
-        checkedInput = checkedInput.Replace('.', ',');
-        checkedInput = checkedInput[..^1];
-        string module = string.Empty;
-        if (checkedInput.StartsWith('-'))
+        if (IsValid(input))
         {
-            module = "-";
-            checkedInput = checkedInput[1..];
-        }
-        int index = 0;
-        if (checkedInput.Contains('-')) index = checkedInput.IndexOf('-');
-        if (checkedInput.Contains('+')) index = checkedInput.IndexOf('+');
-        string first = checkedInput[..index];
-        first = module + first;
-        module = string.Empty;
-        string second = string.Empty;
+            input = input.Replace('.', ',');
+            input = input[..^1];
 
-        if (!checkedInput.Contains('+'))
-        {
-            if (checkedInput.Count(x => x.ToString().Equals("-")) == 2)
-                second = checkedInput[(index + 2)..];
-            if (checkedInput.Count(x => x.ToString().Equals("-")) == 1)
+            string module = string.Empty;
+
+            if (input.StartsWith('-'))
             {
                 module = "-";
-                second = checkedInput[(index + 1)..];
+                input = input[1..];
             }
+
+            int index = 0;
+            if (input.Contains('-')) index = input.IndexOf('-');
+            if (input.Contains('+')) index = input.IndexOf('+');
+            string first = input[..index];
+
+            first = module + first;
+
+            module = string.Empty;
+            string second = string.Empty;
+
+            if (!input.Contains('+'))
+            {
+                if (input.Count(x => x.ToString().Equals("-")) == 2)
+                    second = input[(index + 2)..];
+                if (input.Count(x => x.ToString().Equals("-")) == 1)
+                {
+                    module = "-";
+                    second = input[(index + 1)..];
+                }
+            }
+            else second = input[(index + 1)..];
+
+            second = module + second;
+
+            _ = double.TryParse(first, out double real);
+            _ = double.TryParse(second, out double imaginary);
+            return new ComplexNum(new Complex(real, imaginary));
         }
-        else
-        {
-            second = checkedInput[(index + 1)..];
-        };
-        second = module + second;
-        _ = double.TryParse(first, out double real);
-        _ = double.TryParse(second, out double imaginary);
-        return new ComplexNum(new Complex(real, imaginary));
+        return null!;
     }
 }

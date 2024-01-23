@@ -3,9 +3,24 @@
 /// </summary>
 class CalcSelecter : ICalcSelecter
 {
+    /// <summary>
+    /// Переменая для выбора ICalc
+    /// </summary>
     private readonly ICalc calc;
+
+    /// <summary>
+    /// Первое INum выражения
+    /// </summary>
     private readonly INum first;
+
+    /// <summary>
+    /// Оператор вычисления
+    /// </summary>
     private readonly string operation;
+
+    /// <summary>
+    /// Второе INum выражения
+    /// </summary>
     private readonly INum second;
 
     /// <summary>

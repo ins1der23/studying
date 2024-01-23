@@ -1,3 +1,6 @@
+/// <summary>
+/// Класс для системных сообщений
+/// </summary>
 class LoggerText
 {
     private readonly string numberGot;
@@ -20,6 +23,9 @@ class LoggerText
     public string InputError => inputError;
     public string ZeroError => zeroError;
 
+    /// <summary>
+    /// Конструктор, устанавливающиий текст системных сообщений
+    /// </summary>
     public LoggerText()
     {
         {

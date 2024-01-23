@@ -1,17 +1,31 @@
-
-
+/// <summary>
+/// Класс вещественного INum
+/// </summary>
 class RealNum : INum
 {
+    /// <summary>
+    /// Значение INum
+    /// </summary>
     private double value;
-    public double Value { get => Math.Round(value, 2); set => this.value = value; }
+    /// <summary>
+    /// Свойство, получающее округленное value
+    /// </summary>
+    public double Value { get => Math.Round(value, 2); }
 
+    /// <summary>
+    /// Конструктор, принимающий double на вход, по умолчанию 0 
+    /// </summary>
+    /// <param name="value">double переменная, по умолчанию 0</param>
     public RealNum(double value = 0)
     {
         this.value = value;
     }
 
-
-   public object GetValue() => value;
+    /// <summary>
+    /// Метод для получения значения INum
+    /// </summary>
+    /// <returns>Значение INum</returns>
+    public object GetValue() => value;
 
 
 

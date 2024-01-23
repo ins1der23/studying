@@ -11,5 +11,11 @@ interface ICalc
     /// <param name="second">Второе число типа INum</param>
     /// <returns></returns>
     INum Calculate(INum first, string operation, INum second);
+
+    /// <summary>
+    /// Конвертация INum
+    /// </summary>
+    /// <param name="number">Входящий INum</param>
+    /// <returns>Числовой object</returns>
     object Convert(INum number);
 }

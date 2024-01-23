@@ -1,7 +1,11 @@
+/// <summary>
+/// Абстрактный класс для сообщений руского UI
+/// </summary>
 class UiTextRus : UiText
 {
-    
-
+    /// <summary>
+    /// Конструктор, устанавливающий текст сообщений UI
+    /// </summary>
     public UiTextRus()
     {
         start = "Введите CALC или EXIT";

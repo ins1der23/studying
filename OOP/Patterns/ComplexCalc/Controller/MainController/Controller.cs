@@ -1,15 +1,40 @@
 using static ControllerMethods;
+/// <summary>
+/// Класс Controller
+/// </summary>
 class Controller
 {
 
+    /// <summary>
+    /// коснольный view
+    /// </summary>
     private IView view;
+
+    /// <summary>
+    /// Перемнная для текста UI
+    /// </summary>
     private readonly UiText text;
+
+    /// <summary>
+    /// Переменная для выбора модели ICalc
+    /// </summary>
     private ICalcSelecter? calc;
+    /// <summary>
+    /// Логгер
+    /// </summary>
     private readonly Logger logger;
+    /// <summary>
+    /// Переменная для выбора модели парсера
+    /// </summary>
     private readonly ParserSelecter parser;
 
 
 
+    /// <summary>
+    /// Конструктор, принимает на вход View и текст интерфейса
+    /// </summary>
+    /// <param name="view"></param>
+    /// <param name="text"></param>
     public Controller(View view, UiText text)
     {
         logger = new("log.txt");
@@ -18,6 +43,9 @@ class Controller
         this.text = text;
     }
 
+    /// <summary>
+    /// Запуск программы
+    /// </summary>
     public void Run()
     {
         bool flag = true;
@@ -56,6 +84,14 @@ class Controller
             }
         }
     }
+    /// <summary>
+    /// Вспомоательный метод получения строки с числовым значением
+    /// </summary>
+    /// <param name="message"></param>
+    /// <param name="inputNum"></param>
+    /// <param name="inputError"></param>
+    /// <param name="clear"></param>
+    /// <returns></returns>
     public string GetNumeric(string message, string inputNum, string inputError, bool clear = true)
     {
         view.ShowString(message, clear);
@@ -69,6 +105,14 @@ class Controller
         }
         return output;
     }
+    /// <summary>
+    /// Вспомоательный метод получения оператора вычисления
+    /// </summary>
+    /// <param name="message"></param>
+    /// <param name="inputNum"></param>
+    /// <param name="inputError"></param>
+    /// <param name="clear"></param>
+    /// <returns></returns>
     public string GetOperation(string message, string inputError, bool clear = true)
     {
         string output = string.Empty;

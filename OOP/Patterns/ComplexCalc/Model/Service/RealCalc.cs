@@ -5,10 +5,6 @@ using System.Numerics;
 /// </summary>
 class RealCalc : ICalc
 {
-    public RealCalc()
-    {
-    }
-
     public INum Calculate(INum first, string operation, INum second)
     {
         double fDouble = (double)Convert(first);
@@ -24,6 +20,11 @@ class RealCalc : ICalc
         return result;
     }
 
+    /// <summary>
+    /// Конвертация INum в double
+    /// </summary>
+    /// <param name="number">Входящее INum</param>
+    /// <returns>double число</returns>
     public object Convert(INum number)
     {
         if (number.GetValue() is Complex v)
