@@ -1,26 +1,20 @@
 package Model.Domain;
 
+
+/**
+ * Класс отвечающий за создание записи
+ */
 public class Note {
 
-    private static int idCounter;
-
-    private int id;
     private String name;
     private String middlename;
     private String surname;
-
     private String birthday;
-    private int phone;
+    private long phone;
     private char gender;
 
-    public Note() {
-        id = idCounter++;
-    }
-
-    public int getId() {
-        return id;
-    }
-
+   
+  
     public String getName() {
         return name;
     }
@@ -53,19 +47,24 @@ public class Note {
         this.birthday = birthday;
     }
 
-    public int getPhone() {
+    public Long getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(long phone) {
         this.phone = phone;
     }
 
-    public char getGender() {
+    public Character getGender() {
         return gender;
     }
 
     public void setGender(char gender) {
         this.gender = gender;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("<%s><%s><%s><%s><%d><%c>", surname, name, middlename, birthday, phone, gender);
     }
 }
